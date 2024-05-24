@@ -9,7 +9,22 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    <h1>Welcome to the Home Page</h1>
-    <img src="{% static 'images/logo.png' %}" alt="Logo">
+    <header>
+        <img src="{% static 'fos_app/images/logo.png' %}" alt="Logo">
+        <!-- Home Button -->
+        <a href="#" class="home-button">Home</a>
+
+         <!-- Login and Settings Buttons -->
+         <div class="header-buttons">
+            <button onclick="location.href='login.html'">login</button>
+            <button onclick="location.href='setting.html'">설정</button>
+        </div>
+    </header>
+    <main>
+        <p>hi</p>
+    </main>
+    <footer>
+
+    </footer>
 </body>
 </html>
