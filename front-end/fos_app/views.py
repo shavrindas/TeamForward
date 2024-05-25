@@ -10,8 +10,8 @@ def login_view(request):
 def signup_view(request):
     return render(request, 'fos_app/signup.html') 
 
-def forgot_password_view(request):
-    return render(request, 'fos_app/forgot_password.html') 
+def forgotpassword_view(request):
+    return render(request, 'fos_app/forgotpassword.html') 
 
 def setting_view(request):
     return render(request, 'fos_app/setting.html')
