@@ -7,22 +7,31 @@
 </head>
 <body>
     <header>
-        <!--<a href="#" class="home-button">데플리</a>-->
-        <button type="button" onclick="location.href='/'">데플리</button>
+        <div class="header-buttons">
+            <!-- Home Button -->
+            <button type="button" class="deply-button" onclick="location.href='/'">데플리</button>
+            
+            <!-- Sign in Button -->
+            <button type="button" class="sign-in-button" onclick="location.href='login.html'">Sign In</button>
+            
+            <!-- Settings Button -->
+            <button type="button" onclick="location.href='setting.html'">설정</button>
+        </div>
     </header>
-
-<div>
-    <h2>회원가입</h2>
-    <form id="signupForm">
-        <label for="email">이메일:</label><br>
-        <input type="email" id="email" name="email" required><br>
-        <label for="password">비밀번호:</label><br>
-        <input type="password" id="password" name="password" required><br>
-        <label for="confirmPassword">비밀번호 확인:</label><br>
-        <input type="password" id="confirmPassword" name="confirmPassword" required><br>
-        <button type="button" onclick="signup()">계정 만들기</button>
-    </form>
-</div>
+    <main>
+    <div>
+        <h2>회원가입</h2>
+        <form id="signupForm">
+            <label for="email">이메일:</label><br>
+            <input type="email" id="email" name="email" required><br>
+            <label for="password">비밀번호:</label><br>
+            <input type="password" id="password" name="password" required><br>
+            <label for="confirmPassword">비밀번호 확인:</label><br>
+            <input type="password" id="confirmPassword" name="confirmPassword" required><br>
+            <button type="button" onclick="signup()">계정 만들기</button>
+        </form>
+    </div>
+    </main>
 
 <script>
     function signup() {
@@ -30,6 +39,5 @@
         alert("회원가입 기능 구현 필요");
     }
     </script>
-    
 </body>
 </html>

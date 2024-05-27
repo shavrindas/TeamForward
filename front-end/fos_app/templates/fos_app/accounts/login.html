@@ -6,27 +6,40 @@
     <title>Login Page</title>
 </head>
 <body>
-
-<div>
-    <h2>Login</h2>
-    <!-- 로그인 폼 -->
-    <form id="loginForm">
-        {% csrf_token %}
-        <!-- 이메일과 비밀번호 입력 필드 -->
-        <label for="email">이메일:</label><br>
-        <input type="email" id="email" name="email" required><br>
-        <label for="password">비밀번호:</label><br>
-        <input type="password" id="password" name="password" required><br>
-        <button type="button" onclick="login()">Sign In</button>
-        <button onclick="location.href='{% url 'signup' %}'">회원가입</button>
-
-        <button onclick="location.href='forgotpassword.html'">비밀번호 찾기</button>
-
-    {% if error %}
-        <!-- 로그인 실패 시 에러 메시지 표시 -->
-        <p>{{ error }}</p>
-    {% endif %}
-</div>
+    <header>
+        <div class="header-buttons">
+            <!-- Home Button -->
+            <button type="button" class="deply-button" onclick="location.href='/'">데플리</button>
+            
+            <!-- Sign in Button -->
+            <button type="button" class="sign-in-button" onclick="location.href='login.html'">Sign In</button>
+            
+            <!-- Settings Button -->
+            <button type="button" onclick="location.href='setting.html'">설정</button>
+        </div>
+    </header>
+    <main>
+        <div>
+            <h2>로그인</h2>
+            <!-- 로그인 폼 -->
+            <form id="loginForm">
+                {% csrf_token %}
+                <!-- 이메일과 비밀번호 입력 필드 -->
+                <label for="email">이메일:</label><br>
+                <input type="email" id="email" name="email" required><br>
+                <label for="password">비밀번호:</label><br>
+                <input type="password" id="password" name="password" required><br>
+                <button type="button" onclick="login()">Sign In</button>
+                <button onclick="location.href='{% url 'signup' %}'">회원가입</button>
+            
+                <button onclick="location.href='forgotpassword.html'">비밀번호 찾기</button>
+            
+            {% if error %}
+                <!-- 로그인 실패 시 에러 메시지 표시 -->
+                <p>{{ error }}</p>
+            {% endif %}
+        </div>
+    </main>
 
 <script>
     function login() {
