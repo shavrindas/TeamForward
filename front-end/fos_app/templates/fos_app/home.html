@@ -11,13 +11,15 @@
 <body>
     <header>
         <img src="{% static 'fos_app/images/logo.png' %}" alt="Logo">
-        <!-- Home Button -->
-        <a href="#" class="home-button">Home</a>
-
-         <!-- Login and Settings Buttons -->
-         <div class="header-buttons">
-            <button onclick="location.href='login.html'">login</button>
-            <button onclick="location.href='setting.html'">설정</button>
+        <div class="header-buttons">
+            <!-- Home Button -->
+            <button type="button" class="deply-button" onclick="location.href='/'">데플리</button>
+            
+            <!-- Sign in Button -->
+            <button type="button" class="sign-in-button" onclick="location.href='login.html'">Sign In</button>
+            
+            <!-- Settings Button -->
+            <button type="button" onclick="location.href='setting.html'">설정</button>
         </div>
     </header>
     <main>
