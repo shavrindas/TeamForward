@@ -12,7 +12,7 @@ def home(request):
     return render(request, 'fos_app/home.html')
 
 def login_view(request):
-    return render(request, 'fos_app/login.html')
+    return render(request, 'fos_app/accounts/login.html')
 
 #def signup_view(request):
 #    return render(request, 'fos_app/signup.html') 
@@ -36,19 +36,19 @@ def signup(request):
             pass
     
     # GET 요청이면 회원가입 폼을 반환합니다.
-    return render(request, 'fos_app/signup.html')
+    return render(request, 'fos_app/accounts/signup.html')
 
 
 def forgotpassword_view(request):
-    return render(request, 'fos_app/forgotpassword.html') 
+    return render(request, 'fos_app/accounts/forgotpassword.html') 
 
 def setting_view(request):
-    return render(request, 'fos_app/setting.html')
+    return render(request, 'fos_app/accounts/setting.html')
 
 
 def temp_fine_view(request):
     user = request.user
-    return render(request, 'fos_app/temp_fine.html', {'user': user})
+    return render(request, 'fos_app/accounts/temp_fine.html', {'user': user})
 
 @login_required
 def forgot_password_remake_view(request):
@@ -66,5 +66,5 @@ def forgot_password_remake_view(request):
         else:
             messages.error(request, '비밀번호가 일치하지 않습니다.')
 
-    return render(request, 'fos_app/forgotpasswordremake.html')
+    return render(request, 'fos_app/accounts/forgotpasswordremake.html')
 
