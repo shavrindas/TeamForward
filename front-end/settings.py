@@ -1,5 +1,4 @@
 # fos_project/setting.py
-# 2024.05.22
 import os
 from pathlib import Path
 
@@ -106,9 +105,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    BASE_DIR / 'front-end' / 'static',
-]
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+) 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

@@ -1,4 +1,13 @@
-/* fos_app/static/css/styles.css */
+/* static/css/styles.css */
+@charset "utf-8";
+
+body {
+    font-family: 'Monda', sans-serif;
+
+    background-color: #FFFEFC;
+
+}
+
 .deply-button {
     position: absolute;
     width: 172px;
@@ -37,8 +46,4 @@
     border: none;
     border-radius: 14px;
     cursor: pointer;
-}
-
-body {
-    font-family: 'Monda', sans-serif;
 }
