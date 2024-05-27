@@ -1,0 +1,18 @@
+<!-- user_session.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Session Main Page</title>
+</head>
+<body>
+    <h1>User Session Main Page</h1>
+    <p>Welcome, {{ username }}!</p>  <!-- Display email -->
+    <a href="{% url 'edit_profile' %}">Edit Profile</a>
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Log Out</button>
+    </form>
+</body>
+</html>
