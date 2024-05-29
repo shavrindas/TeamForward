@@ -1,0 +1,38 @@
+/* fos_app/static/css/styles.css */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home-button {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    margin-right: auto;
+}
+
+.header-buttons {
+    display: flex;
+}
+
+.login-button, .settings-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.login-button:hover, .settings-button:hover {
+    background-color: #0056b3;
+}
+
+body {
+    font-family: Monda; /*take aroud. if wrong*/
+}
