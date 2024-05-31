@@ -1,12 +1,17 @@
+{% load static %}
 <!-- user_session.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Session Main Page</title>
+    <link rel="stylesheet" href="{% static 'accounts/css/styles.css' %}">
 </head>
 <body>
+    <header>
+        <!-- Home Button -->
+        <button type="button" class="deply-button" onclick="location.href='/'">데플리</button>
+    </header>
     <h1>User Session Main Page</h1>
     <p>Welcome, {{ username }}!</p>  <!-- Display email -->
     <a href="{% url 'edit_profile' %}">Edit Profile</a>
