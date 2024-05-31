@@ -1,0 +1,48 @@
+/* static/css/styles.css */
+@charset "utf-8";
+
+body {
+    font-family: 'Monda', sans-serif;
+
+    background-color: #FFFEFC;
+}
+
+.deply-button {
+    position: absolute;
+    width: 172px;
+    height: 101px;
+    left: 69px;
+    top: 29px;
+    font-family: 'Monda', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 62.0434px;
+    line-height: 101px;
+    text-align: center;
+    align-items: center;
+    color: #1A66D7;
+    border: none;
+    background: none;
+    cursor: pointer;
+    white-space: nowrap; /* 텍스트가 한 줄로 나오게 함 */
+}
+
+.sign-in-button {
+    position: absolute;
+    width: 174px;
+    height: 58px;
+    left: 1106px;
+    top: 46px;
+    font-family: 'Monda', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: #294CC8;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+}

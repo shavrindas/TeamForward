@@ -1,13 +1,20 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Page</title>
+    <link rel="stylesheet" href="{% static 'accounts/css/styles.css' %}">
 </head>
 <body>
-    <h1>Welcome to the Main Page</h1>
-    <a href="{% url 'signup' %}">Sign Up</a>
-    <a href="{% url 'login' %}">Log In</a>
+    <header>
+        <!-- Home Button -->
+        <button type="button" class="deply-button" onclick="location.href='/'">데플리</button>
+        <!-- Login Button -->
+        <button type="button" class="sign-in-button" onclick="location.href='login'">Sign In</button>
+        <!-- option -->
+        <!--login버튼 옆에 따로 구현-->
+    </header>
 </body>
 </html>

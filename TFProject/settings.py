@@ -121,7 +121,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = 'static/' #'/static/' 이렇게 안해도 되나?
 
 STATICFILES_DIR = [     ## 이 폴더 자체를 새로 만듦.
     #여기에 인터넷에 본 대로 각 app에 대한 경로 설정
