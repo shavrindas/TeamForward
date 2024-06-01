@@ -8,8 +8,14 @@
 </head>
 <body>
     <header>
-        <!-- Home Button -->
-        <button type="button" class="deply-button" onclick="location.href='/'">데플리</button>
+        <nav>
+            <!-- Home Button -->
+            <button type="button" class="deply-button" onclick="location.href='/'">데플리</button>
+            <!-- Login Button -->
+            <button type="button" class="sign-in-button" onclick="location.href='login'">Sign In</button>
+            <!-- option -->
+            <!--login버튼 옆에 따로 구현-->
+        </nav>
     </header>
     <h1>Log In</h1>
     <form action="{% url 'login' %}" method="post">
@@ -21,6 +27,7 @@
         <button type="submit">Log In</button>
     </form>
     <p><a href="{% url 'find_account' %}">비밀번호 찾기</a></p>  <!-- 비밀번호 찾기 링크 추가 -->
+    <!--회원가입 버튼 추가-->
     {% if messages %}
         <ul>
             {% for message in messages %}
@@ -28,5 +35,6 @@
             {% endfor %}
         </ul>
     {% endif %}
+
 </body>
 </html>

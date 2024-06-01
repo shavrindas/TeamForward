@@ -8,8 +8,14 @@
 </head>
 <body>
     <header>
-        <!-- Home Button -->
-        <button type="button" class="deply-button" onclick="location.href='/'">데플리</button>
+        <nav>
+            <!-- Home Button -->
+            <button type="button" class="deply-button" onclick="location.href='/'">데플리</button>
+            <!-- Login Button -->
+            <button type="button" class="sign-in-button" onclick="location.href='login'">Sign In</button>
+            <!-- option -->
+            <!--login버튼 옆에 따로 구현-->
+        </nav>
     </header>
     <h1>Sign Up</h1>
     <form action="{% url 'signup' %}" method="post">
