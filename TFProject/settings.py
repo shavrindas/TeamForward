@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts', #이거도 다 추가해줘야할듯?
+    'add_clothes',
+    'recommendation_clothes',
 ]
 
 MIDDLEWARE = [
