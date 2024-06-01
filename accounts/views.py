@@ -1,8 +1,8 @@
+import hashlib
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
 from django.contrib import messages
 from .models import UserData
-import hashlib
 
 def main_page(request):
     return render(request, 'accounts/main_page.html')
