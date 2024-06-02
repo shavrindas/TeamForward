@@ -32,8 +32,8 @@ body {
     position: absolute;
     width: 174px;
     height: 58px;
-    left: 1106px;
-    top: 46px;
+    right: 180px;
+    top: 65px;
     font-family: 'Monda', sans-serif;
     font-style: normal;
     font-weight: 700;
@@ -63,7 +63,7 @@ body {
     position: absolute;
     width: 147px;
     height: 52px;
-    left: 286px;
+    left: 295px;
     top: 58px;
     font-family: 'Monda', sans-serif;
     font-style: normal;
@@ -78,7 +78,7 @@ body {
     position: absolute;
     width: 225px;
     height: 58px;
-    left: 257px;
+    left: 271px;
     top: 55px;
     background: #D9D9D9;
     border-radius: 100px;
