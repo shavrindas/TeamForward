@@ -49,6 +49,7 @@ body {
 }
 
 
+
 /*Logo*/
 /* Container for the logo */
 .logo-container {
@@ -72,8 +73,7 @@ body {
     color: #5D5B56;
     z-index: 2; /* Make sure text is on top */
 }
-
-/* Rectangle 12 */
+/* Left box */
 .rectangle-12 {
     position: absolute;
     width: 225px;
@@ -84,7 +84,6 @@ body {
     border-radius: 100px;
     z-index: 1; /* Make sure background is below text */
 }
-
 /* Daily text */
 .daily {
     position: absolute;
@@ -100,8 +99,7 @@ body {
     color: #FFFFFF;
     z-index: 4; /* Make sure text is on top */
 }
-
-/* Rectangle 13 */
+/* Right box */
 .rectangle-13 {
     position: absolute;
     width: 140px;
@@ -112,3 +110,84 @@ body {
     border-radius: 100px;
     z-index: 3; /* Make sure background is below text */
 }
+/*--------------------------------------------------------------------------------------------*/
+
+/*Login box*/
+/* 로그인 box */
+.login-box {
+    box-sizing: border-box;
+    width: 629px;
+    padding: 40px;
+    margin: 0 auto;
+    background: #FFFEFC;
+    border: 2px solid #D9D9D9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* log in button */
+.login-button {
+    width: 123px;
+    height: 61px;
+    background-color: #294CC8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Line 1 */
+.line {
+    width: 100%;
+    border: 1px solid #D9D9D9;
+}
+
+/* 회원가입, 비밀번호 찾기 링크 */
+.signup-link, .forgot-password-link {
+    font-family: 'Monda', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    color: #1A66D7;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* 로그인(logo) */
+.login-logo {
+    font-family: 'Monda', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    color: #737373;
+}
+
+/* EMAIL and PASSWORD input containers */
+.input-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background: #FFFFFF;
+    border: 1px solid #D9D9D9;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.input-container input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 18px;
+}
+
+.input-container img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+/*--------------------------------------------------------------------------------------------*/
