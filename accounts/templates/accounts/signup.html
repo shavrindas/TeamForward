@@ -17,6 +17,7 @@
             <!--login버튼 옆에 따로 구현-->
         </nav>
     </header>
+    
     <h1>Sign Up</h1>
     <form action="{% url 'signup' %}" method="post">
         {% csrf_token %}
@@ -26,5 +27,13 @@
         <input type="password" id="password" name="password">
         <button type="submit">Sign Up</button>
     </form>
+
+    <!-- Logo -->
+    <div class="logo-container">
+        <div class="rectangle-12"></div>
+        <div class="rectangle-13"></div>
+        <div class="ready-for">Ready for</div>
+        <div class="daily">Daily</div>
+    </div>
 </body>
 </html>

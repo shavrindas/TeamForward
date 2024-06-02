@@ -3,11 +3,11 @@
 
 body {
     font-family: 'Monda', sans-serif;
-
     background-color: #FFFEFC;
 }
 
 .deply-button {
+    z-index: 10; /* Ensure buttons are on top */
     position: absolute;
     width: 172px;
     height: 101px;
@@ -28,6 +28,7 @@ body {
 }
 
 .sign-in-button {
+    z-index: 10; /* Ensure buttons are on top */
     position: absolute;
     width: 174px;
     height: 58px;
@@ -45,4 +46,69 @@ body {
     border: none;
     border-radius: 14px;
     cursor: pointer;
+}
+
+
+/*Logo*/
+/* Container for the logo */
+.logo-container {
+    position: relative;
+    width: 500px; /* Adjust width as needed */
+    height: 120px; /* Adjust height as needed */
+}
+
+/* Ready for text */
+.ready-for {
+    position: absolute;
+    width: 147px;
+    height: 52px;
+    left: 286px;
+    top: 58px;
+    font-family: 'Monda', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32.0119px;
+    line-height: 52px;
+    color: #5D5B56;
+    z-index: 2; /* Make sure text is on top */
+}
+
+/* Rectangle 12 */
+.rectangle-12 {
+    position: absolute;
+    width: 225px;
+    height: 58px;
+    left: 257px;
+    top: 55px;
+    background: #D9D9D9;
+    border-radius: 100px;
+    z-index: 1; /* Make sure background is below text */
+}
+
+/* Daily text */
+.daily {
+    position: absolute;
+    width: 80px;
+    height: 52px;
+    left: 482px;
+    top: 58px;
+    font-family: 'Monda', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32.0119px;
+    line-height: 52px;
+    color: #FFFFFF;
+    z-index: 4; /* Make sure text is on top */
+}
+
+/* Rectangle 13 */
+.rectangle-13 {
+    position: absolute;
+    width: 140px;
+    height: 58px;
+    left: 447px;
+    top: 55px;
+    background: #294CC8;
+    border-radius: 100px;
+    z-index: 3; /* Make sure background is below text */
 }
