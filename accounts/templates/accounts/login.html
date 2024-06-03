@@ -1,3 +1,4 @@
+<!-- accounts/login.html -->
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -24,28 +25,28 @@
         <div class="daily">Daily</div>
     </div>
 
-    <div class="login-box">
-        <h1 class="login-logo">로그인</h1>
-        <div class="line"></div>
-        
-        <form action="{% url 'login' %}" method="post" style="width: 100%;">
-            {% csrf_token %}
+    <div class="login-container">
+        <div class="login-box">
+            <h1 class="login-logo">로그인</h1>
+            <div class="line"></div>
             
-            <div class="input-container">
-                <img src="{% static 'accounts/img/email-icon.png' %}" alt="Email Icon">
-                <input type="email" id="email" name="email" placeholder="이메일">
-            </div>
+            <form action="{% url 'login' %}" method="post" style="width: 100%; display: flex; flex-direction: column; gap: 20px;">
+                {% csrf_token %}
+                
+                <div class="input-container">
+                    <input type="email" id="email" name="email" placeholder="이메일">
+                </div>
+                
+                <div class="input-container">
+                    <input type="password" id="password" name="password" placeholder="비밀번호">
+                </div>
+                
+                <button type="submit" class="login-button">Log In</button>
+            </form>
             
-            <div class="input-container">
-                <img src="{% static 'accounts/img/password-icon.png' %}" alt="Password Icon">
-                <input type="password" id="password" name="password" placeholder="비밀번호">
-            </div>
-            
-            <button type="submit" class="login-button">Log In</button>
-        </form>
-        
-        <a href="{% url 'find_account' %}" class="forgot-password-link">비밀번호 찾기</a>
-        <a href="{% url 'signup' %}" class="signup-link">회원가입</a>
+            <a href="{% url 'find_account' %}" class="forgot-password-link">비밀번호 찾기</a>
+            <a href="{% url 'signup' %}" class="signup-link">회원가입</a>
+        </div>
     </div>
     
     {% if messages %}
