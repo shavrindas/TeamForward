@@ -18,8 +18,8 @@
     {% for picture in pictures %}
         <div>
             <img src="{{ picture.picture.url }}" alt="User Picture" width="50" height="50">
-            <p>Uploaded by: {{ picture.user.email }}</p>
-            <p>Upload date: {{ picture.upload_date }}</p>
+            <p>{{ picture.picture_name }}</p> <!-- picture_name을 출력합니다. -->
+            <a href="{% url 'delete_picture' picture.id %}">Delete</a> <!-- 삭제 링크를 추가합니다. -->
         </div>
     {% endfor %}
 </body>

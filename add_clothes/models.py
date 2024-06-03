@@ -8,6 +8,7 @@ class UserPicture(models.Model):
     user        = models.ForeignKey(UserData, on_delete=models.CASCADE)
     picture     = models.ImageField(upload_to='user_pictures/')
     upload_date = models.DateTimeField(auto_now_add=True)
+    picture_name= models.CharField(max_length=255, blank=True)  # 새로운 필드 추가
 
     class Meta:
         db_table = 'user_picture'
