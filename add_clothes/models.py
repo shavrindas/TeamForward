@@ -1,3 +1,14 @@
-from django.db import models
+# add_clothes/models.py
 
-# Create your models here.
+from django.db import models
+from accounts.models import UserData  
+class UserPicture(models.Model):
+    
+    
+    user        = models.ForeignKey(UserData, on_delete=models.CASCADE)
+    picture     = models.ImageField(upload_to='user_pictures/')
+    upload_date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        db_table = 'user_picture'
+        managed = True

@@ -1,8 +1,8 @@
-import hashlib
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
 from django.contrib import messages
 from .models import UserData
+import hashlib
 
 def main_page(request):
     return render(request, 'accounts/main_page.html')
@@ -32,15 +32,31 @@ def login(request):
 
         try:
             user = UserData.objects.get(email=email, password=hashed_password)
-            response = redirect('user_session')
+            next_page = request.GET.get('next')
+            if next_page:
+                response = redirect(next_page)
+            else:
+                response = redirect('user_session')
             response.set_cookie('user_id', user.id)
             return response
         except UserData.DoesNotExist:
             messages.error(request, '유효하지 않은 이메일 또는 비밀번호입니다.')
             return render(request, 'accounts/login.html')
     else:
-        return render(request, 'accounts/login.html')
+        # 이전 페이지로부터 전달된 next 매개변수 확인
+        next_page = request.GET.get('next')
+        return render(request, 'accounts/login.html', {'next': next_page})
 
+
+def user_session(request):
+    user_id = request.COOKIES.get('user_id')
+    if user_id:
+        user = get_object_or_404(UserData, id=user_id)
+        return render(request, 'accounts/user_session.html', {'username': user.id})
+    else:
+        return redirect('login')
+    
+''''
 def user_session(request):
     user_id = request.COOKIES.get('user_id')
     if user_id:
@@ -48,6 +64,21 @@ def user_session(request):
         return render(request, 'accounts/user_session.html', {'username': user.email})
     else:
         return redirect('login')
+
+
+#@login_required
+def user_session(request):
+    if request.user.is_authenticated:  # 사용자가 인증되어 있는지 확인
+        user = request.user
+        return render(request, 'accounts/user_session.html', {'username': user.email})
+    else:
+        next_page = request.GET.get('next')
+        if next_page == 'add_and_show':
+            return redirect(reverse('login') + '?next=add_and_show')  # 로그인 페이지로 리다이렉트하고, 로그인 후에는 add_and_show 페이지로 이동
+        else:
+            return redirect('login')  # 로그인 페이지로 리다이렉트
+''' 
+    
     
 def find_account(request):
     if request.method == 'POST':
@@ -80,7 +111,6 @@ def edit_account(request):
             return render(request, 'accounts/edit_account.html', {'user_id': user_id})
     else:
         return redirect('main_page')
-
 
 def edit_profile(request):
     user_id = request.COOKIES.get('user_id')

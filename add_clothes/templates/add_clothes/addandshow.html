@@ -1,0 +1,26 @@
+<!-- add_clothes/addandshow.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add and Show Pictures</title>
+</head>
+<body>
+    <h1>Welcome, {{ user.email }}</h1> <!-- 사용자 이메일을 출력합니다. -->
+    
+    <h1>Add a Picture</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="picture"> <!-- 파일 선택을 위한 input 태그를 추가합니다. -->
+        <button type="submit">Upload</button>
+    </form>
+    
+    <h1>Uploaded Pictures</h1>
+    {% for picture in pictures %}
+        <div>
+            <img src="{{ picture.picture.url }}" alt="User Picture" width="50" height="50">
+            <p>Uploaded by: {{ picture.user.email }}</p>
+            <p>Upload date: {{ picture.upload_date }}</p>
+        </div>
+    {% endfor %}
+</body>
+</html>
