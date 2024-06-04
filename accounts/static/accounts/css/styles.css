@@ -95,7 +95,7 @@ body {
     font-size: 32.0119px;
     line-height: 52px;
     color: #FFFFFF;
-    z-index: 4; /* Make sure text is on top */
+    z-index: 4; /* yMake sure text is on top */
 }
 /* Right box */
 .rectangle-13 {
@@ -137,7 +137,7 @@ body {
 /* log in button */
 .login-button {
     width: 123px;
-    height: 61px;
+    height: 40px;
     background-color: #294CC8;
     color: white;
     border: none;
@@ -153,7 +153,7 @@ body {
 .line {
     width: 100%;
     border: 1px solid #D9D9D9;
-    margin-top: 0px; /* Adjust this value to reduce space between text and line */
+    margin-top: -10px; /* Adjust this value to reduce space between text and line */
     margin-bottom: 5px;
 }
 
@@ -166,19 +166,21 @@ body {
     color: #1A66D7;
     cursor: pointer;
     text-decoration: none;
+    margin-top:30px; /*여기 문제되면 지우기.*/
     margin-bottom: 10px; /* Adjust spacing between links and input container */
 }
 
 .signup-link {
-    position: absolute;
-    left: 40px;
+    position: relative;
+    left: -237px;
+    top: -50px;
     bottom: 20px;
 }
 
 .forgot-password-link {
-    position: absolute;
-    left: 40px;
-    bottom: 50px; /* To place it above the signup link */
+    position: relative;
+    left: -216px;
+    bottom: 20px; /* To place it above the signup link */
 }
 
 /* 로그인(logo) */
@@ -186,8 +188,9 @@ body {
     font-family: 'Monda', sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 48px; /* Enlarge the font size */
+    font-size: 60px; /* Enlarge the font size */
     color: #737373;
+    margin-top: -5px;
     margin-bottom: 0px; /* Reduce space between text and line */
 }
 
@@ -200,7 +203,7 @@ body {
     border: 1px solid #D9D9D9;
     border-radius: 5px;
     padding: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .input-container input {
@@ -208,10 +211,4 @@ body {
     border: none;
     outline: none;
     font-size: 18px;
-}
-
-.input-container img {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
 }
