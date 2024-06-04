@@ -46,15 +46,18 @@
             
             <a href="{% url 'find_account' %}" class="forgot-password-link">비밀번호 찾기</a>
             <a href="{% url 'signup' %}" class="signup-link">회원가입</a>
+            
+            <!-- Error messages -->
+            {% if messages %}
+                <div class="error-messages">
+                    <ul>
+                        {% for message in messages %}
+                            {{ message }}
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
         </div>
     </div>
-    
-    {% if messages %}
-        <ul>
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
 </body>
 </html>
