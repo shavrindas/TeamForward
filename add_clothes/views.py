@@ -1,20 +1,47 @@
 # add_clothes/views.py
 import os
 import sys
+import json
+import numpy as np
+from PIL import Image
+from io import BytesIO
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from django.core.files.uploadedfile import InMemoryUploadedFile
-from io import BytesIO
-from PIL import Image
+from django.contrib import messages
 from .models import UserData, UserPicture
 from .forms import UserPictureForm
-from django.contrib import messages
+from tensorflow.keras.preprocessing import image
+from tensorflow.keras.models import load_model
+
+# 모델 로드
+model_path = os.path.join(os.path.dirname(__file__), 'model/clothes_classification_model.h5')
+model = load_model(model_path)
+
+# 클래스 인덱스 로드
+class_indices_path = os.path.join(os.path.dirname(__file__), 'model/class_indices.json')
+with open(class_indices_path, 'r') as f:
+    class_indices = json.load(f)
+class_labels = {v: k for k, v in class_indices.items()}
+
+def predict_clothes(img):
+    img = img.resize((50, 50), Image.LANCZOS)
+    img_array = image.img_to_array(img)
+    img_array = np.expand_dims(img_array, axis=0) / 255.0
+    
+    predictions = model.predict(img_array)
+    predicted_class = np.argmax(predictions, axis=1)
+    
+    predicted_label = class_labels[predicted_class[0]]
+    
+    return predicted_label
+
+
 
 def yet(request):
     return render(request, 'add_clothes/yet.html')
 # add_clothes/views.py
-
 
 def add_and_show(request):
     user_id = request.COOKIES.get('user_id')
@@ -33,17 +60,18 @@ def add_and_show(request):
             picture = form.save(commit=False)
             image_file = picture.picture
             img = Image.open(image_file)
-            img = img.resize((50, 50), Image.LANCZOS)
+            
+            # 이미지 이름을 예측된 레이블로 저장합니다.
+            predicted_label = predict_clothes(img)
+            picture.picture_name = predicted_label
             
             # 이미지를 BytesIO에 저장하고 InMemoryUploadedFile로 변환합니다.
+            img = img.resize((50, 50), Image.LANCZOS)
             output = BytesIO()
             img.save(output, format='JPEG', quality=100)
             output.seek(0)
             picture.picture = InMemoryUploadedFile(output, 'ImageField', "%s.jpg" % picture.picture.name.split('.')[0], 'image/jpeg', sys.getsizeof(output), None)
             
-            # 이미지 이름을 저장합니다.
-            picture.picture_name = picture.picture.name
-
             picture.user = user  # 현재 로그인한 사용자를 할당합니다.
             picture.save()
             return redirect('add_and_show')
