@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'accounts',
     'add_clothes',
     'recommendation_clothes',
+    'cal',
 ]
 
 MIDDLEWARE = [
