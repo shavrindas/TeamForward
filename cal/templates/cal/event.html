@@ -1,0 +1,78 @@
+{% extends 'cal/base.html' %}
+
+{% block title %}
+    {% if event_exists %}일정 관리{% else %}일정 관리{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="clearfix">
+</div>
+
+{% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                {{ field.label }} <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            {{ field.label }} <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+{% endif %}
+
+<form method="post" enctype="multipart/form-data" id="eventForm">
+    {% csrf_token %}
+
+    <table class="form form-table">
+        {% for field in form %}
+
+            <tr>
+                <td>
+                {{ field.label_tag }}
+                {% if event_exists and field.name == 'image' %}
+                    <input type="{{ field.field.widget.input_type }}" name="{{ field.name }}" value="{{ field.value }}" disabled>
+                {% elif field.name == 'title' %}
+                    <input type="{{ field.field.widget.input_type }}" name="{{ field.name }}" value="{{ field.value }}" placeholder="일정을 적으세요" {% if event_exists %}disabled{% endif %}>
+                {% elif field.name == 'description' %}
+                    <input type="{{ field.field.widget.input_type }}" name="{{ field.name }}" value="{{ field.value }}" placeholder="설명을 적으세요" {% if event_exists %}disabled{% endif %}>
+                {% elif field.name == 'start_time' %}
+                    {{ field }}
+                {% elif field.name == 'end_time' %}
+                    {{ field }}
+                {% else %}
+                    <input type="{{ field.field.widget.input_type }}" name="{{ field.name }}" value="{{ field.value }}" {% if event_exists %}disabled{% endif %}>
+                {% endif %}
+                </td>
+        {% endfor %}
+
+        <tr>
+            <td colspan="2">
+                {% if event_exists %}
+                    <button type="button" class="btn btn-info right" id="editButton"> 수정 </button>  <!-- 수정 버튼 -->
+                    <button type="submit" class="btn btn-info right" id="saveButton" style="display: none;"> 저장 </button>  <!-- 저장 버튼 -->
+                    <a href="{% url 'cal:event_delete' event.id %}" class="btn btn-danger right">삭제</a>  <!-- 삭제 버튼 -->
+                {% else %}
+                    <button type="submit" class="btn btn-info right"> 생성 </button>  <!-- 생성 버튼 -->
+                {% endif %}
+                <a href="{% url 'cal:calendar' %}" class="btn btn-info right"> 돌아가기 </a>
+            </td>
+        </tr>
+    </table>
+</form>
+
+{% if event_exists %}
+<script>
+    document.getElementById('editButton').addEventListener('click', function() {
+        var form = document.getElementById('eventForm');
+        for (var i = 0; i < form.elements.length; i++) {
+            form.elements[i].disabled = false;
+        }
+        this.style.display = 'none';
+        document.getElementById('saveButton').style.display = 'block';
+    });
+</script>
+{% endif %}
+{% endblock %}
