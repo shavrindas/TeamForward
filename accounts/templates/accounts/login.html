@@ -1,3 +1,4 @@
+
 <!-- accounts/login.html -->
 {% load static %}
 <!DOCTYPE html>
@@ -61,3 +62,68 @@
     </div>
 </body>
 </html>
+=======
+<!-- accounts/login.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="{% static 'accounts/css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <!-- Home Button -->
+            <button type="button" class="deply-button" onclick="location.href='/'">데플리</button>
+            <!-- Login Button -->
+            <button type="button" class="sign-in-button" onclick="location.href='{% url 'login' %}'">Sign In</button>
+        </nav>
+    </header>
+
+    <div class="logo-container">
+        <div class="rectangle-12"></div>
+        <div class="rectangle-13"></div>
+        <div class="ready-for">Ready for</div>
+        <div class="daily">Daily</div>
+    </div>
+
+    <div class="login-container">
+        <div class="login-box">
+            <h1 class="login-logo">로그인</h1>
+            <div class="line"></div>
+            
+            <form action="{% url 'login' %}" method="post" style="width: 100%; display: flex; flex-direction: column; gap: 20px;">
+                {% csrf_token %}
+                
+                <div class="input-container">
+                    <input type="email" id="email" name="email" placeholder="이메일">
+                </div>
+                
+                <div class="input-container">
+                    <input type="password" id="password" name="password" placeholder="비밀번호">
+                </div>
+                
+                <button type="submit" class="login-button">Log In</button>
+            </form>
+            
+            <a href="{% url 'find_account' %}" class="forgot-password-link">비밀번호 찾기</a>
+            <a href="{% url 'signup' %}" class="signup-link">회원가입</a>
+            
+            <!-- Error messages -->
+            {% if messages %}
+                <div class="error-messages">
+                    <ul>
+                        {% for message in messages %}
+                            {{ message }}
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
+
