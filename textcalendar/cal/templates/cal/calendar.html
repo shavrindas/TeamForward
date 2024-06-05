@@ -1,0 +1,76 @@
+{% extends 'cal/base.html' %}
+
+{% block title %}
+<div style="display: flex; align-items: center;">
+    <h1 style="margin-right: 20px;">달력</h1>
+    <div id="weather" style="display: flex; align-items: center;">
+        <p id="weatherText" style="margin-right: 10px; font-size: 0.8em;"></p>
+        <img id="weatherIcon" src="" alt="Weather icon">
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+{% load tz %}
+{% get_current_timezone as TIME_ZONE %}
+{% now "Y-m-d" as today %}
+
+<div class="clearfix">
+    <a class="btn btn-info right" href="{% url 'cal:event_new' %}"> 일정 생성 </a>
+    <a class="btn btn-info right" href="{% url 'cal:calendar' %}?{{ next_month }}"> 다음달 </a>
+    <a class="btn btn-info right" href="{% url 'cal:calendar' %}?{{ today }}"> 이번달 </a>
+    <a class="btn btn-info right" href="{% url 'cal:calendar' %}?{{ prev_month }}"> 이전달 </a>
+</div>
+
+<div class="calendar">
+    {{ calendar }}
+</div>
+
+<script>
+    var eventUrl = "{% url 'cal:event_page' 123 %}".replace('123', ''); 
+    var newEventUrl = "{% url 'cal:event_new' %}"; 
+
+    document.querySelectorAll('.date').forEach(function(dateElement) {
+        dateElement.classList.add('cursor-pointer');
+
+        dateElement.addEventListener('click', function(e) {
+            var date = e.target.dataset.date;
+            var eventId = e.target.dataset.eventId;
+            if (eventId) {
+                window.location.href = eventUrl + eventId + '?date=' + date; 
+            } else {
+                window.location.href = newEventUrl + '?date=' + date;
+            }
+        });
+    });
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else { 
+            console.log("Geolocation is not supported by this browser.");
+        }
+    }
+
+    function showPosition(position) {
+        var lat = position.coords.latitude;
+        var lon = position.coords.longitude;
+        getWeather(lat, lon);  // Call the getWeather function
+    }
+
+    window.onload = getLocation;
+
+    function getWeather(lat, lon) {
+        fetch(`/weather/?lat=${lat}&lon=${lon}`)
+            .then(response => response.json())
+            .then(data => {
+                var weatherText = document.getElementById('weatherText');
+                weatherText.innerText = '온도: ' + data.temp + ' 현재 날씨: ' + data.description;
+    
+                var weatherIcon = document.getElementById('weatherIcon');
+                weatherIcon.src = "http://openweathermap.org/img/w/" + data.icon + ".png";
+            });
+    }
+</script>
+
+{% endblock %}
