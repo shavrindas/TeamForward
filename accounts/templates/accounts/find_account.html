@@ -1,19 +1,43 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find Account</title>
+    <link rel="stylesheet" href="{% static 'accounts/css/styles.css' %}">
 </head>
 <body>
-    <h1>Find Account</h1>
-    <!-- Find account form -->
-    <form action="{% url 'find_account' %}" method="post">
-        {% csrf_token %}
-        <!-- Form fields for finding account -->
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email">
-        <button type="submit">Find Account</button>
-    </form>
+    <header>
+        <nav>
+            <!-- Home Button -->
+            <button type="button" class="deply-button" onclick="location.href='/'">데플리</button>
+            <!-- Login Button -->
+            <button type="button" class="sign-in-button" onclick="location.href='login'">Sign In</button>
+            <!-- option -->
+            <!--login버튼 옆에 따로 구현-->
+        </nav>
+    </header>
+
+    <div class="logo-container">
+        <div class="rectangle-12"></div>
+        <div class="rectangle-13"></div>
+        <div class="ready-for">Ready for</div>
+        <div class="daily">Daily</div>
+    </div>
+
+    <!-- Password Retrieval Box -->
+    <div class="find-account-container">
+        <!-- Logo -->
+        <div class="find-account-logo">비밀번호 찾기</div>
+        <!-- Line -->
+        <div class="find-account-line"></div>
+        <!-- Email Input -->
+        <div class="input-container">
+            <input type="email" id="email" name="email" placeholder="이메일">
+        </div>
+        <!-- Find Account Button -->
+        <button type="submit" class="find-account-button">Find Account</button>
+    </div>
 </body>
 </html>
