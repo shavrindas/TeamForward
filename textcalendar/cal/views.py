@@ -11,7 +11,7 @@ from .models import Event
 from .utils import Calendar
 from .forms import EventForm
 
-api_key = 'cbd3023a75f5f25f7c80897189cbe42a';  # OpenWeatherMap에서 발급받은 API 키
+api_key = '';  # OpenWeatherMap에서 발급받은 API 키
 
 class CalendarView(generic.ListView):
     model = Event
@@ -102,7 +102,6 @@ def weather(request):
         'description': weather_data['weather'][0]['description'],
         'icon': weather_data['weather'][0]['icon'],
     }
-    print(response_data)  # Add this line
     return JsonResponse(response_data)
 
 def get_weather_data(lat, lon):
