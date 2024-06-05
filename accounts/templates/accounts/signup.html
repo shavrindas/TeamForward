@@ -1,3 +1,60 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'accounts/css/styles.css' %}">
+    <title>Sign Up</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <!-- Home Button -->
+            <button type="button" class="deply-button" onclick="location.href='/'">데플리</button>
+            <!-- Login Button -->
+            <button type="button" class="sign-in-button" onclick="location.href='login'">Sign In</button>
+            <!-- option -->
+            <!--login버튼 옆에 따로 구현-->
+        </nav>
+    </header>
+
+    <!-- Logo -->
+    <div class="logo-container">
+        <div class="rectangle-12"></div>
+        <div class="rectangle-13"></div>
+        <div class="ready-for">Ready for</div>
+        <div class="daily">Daily</div>
+    </div>
+
+    <!-- 회원가입 박스 -->
+    <div class="signup-container">
+        <!-- Logo -->
+        <div class="signup-logo">회원가입</div>
+        <!-- Line (up) -->
+        <div class="signup-line-up"></div>
+        <!-- Form 시작 -->
+        <form method="post" action="{% url 'signup' %}">
+            {% csrf_token %}
+            <!-- Email Input -->
+            <div class="input-container">
+                <input type="text" id="email" name="email" placeholder="이메일">
+            </div>
+            <!-- Password Input -->
+            <div class="input-container">
+                <input type="password" id="password" name="password" placeholder="비밀번호">
+            </div>
+            <!-- Line (down) -->
+            <div class="signup-line-down"></div>
+            <!-- 회원가입 버튼 -->
+            <button type="submit" class="signup-button">Sign Up</button>
+        </form>
+        <!-- Form 끝 -->
+    </div>
+</body>
+</html>
+=======
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">

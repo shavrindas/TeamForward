@@ -1,16 +1,14 @@
-# add_clothes/urls.py # 일단 테스트로 임시로 저장한거니까 나중에 수정하자.
+# add_clothes/urls.py
+
+from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
-from accounts import views
+from . import views  # add_clothes.views에서 가져옵니다
+from .views import add_and_show, delete_picture
 
 urlpatterns = [
-    path(''             , views.main_page,  name='main_page'),
-    path('signup/'      , views.signup,     name='signup'),
-    path('login/'       , views.login,      name='login'),
-    path('logout/'      , views.logout,     name='logout'),
-    path('user_session/', views.user_session, name='user_session'),  # URL 패턴 수정
-    path('find_account/', views.find_account, name='find_account'),
-    path('edit_account/', views.edit_account, name='edit_account'),
-    path('edit_profile/', views.edit_profile, name='edit_profile'),
-   
-]
+    path('yet/', views.yet, name='yet'),
+    path('add/', views.add_and_show, name='add_and_show'),
+    path('delete/<int:picture_id>/', delete_picture, name='delete_picture'),
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
