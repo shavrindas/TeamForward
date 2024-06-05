@@ -6,6 +6,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path(''    , include('accounts.urls')),
     path('' , include('add_clothes.urls')),  # URL 패턴 추가
+    path('' , include('cal.urls')),  # cal URL 패턴 추가
 
 
 
