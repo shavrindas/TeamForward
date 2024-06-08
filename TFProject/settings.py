@@ -41,8 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     'add_clothes',
-    'recommendation_clothes',
     'cal',
+    'recommend'
 ]
 
 MIDDLEWARE = [
