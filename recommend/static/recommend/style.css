@@ -1,0 +1,20 @@
+/* 이미지를 사진 크기로 제한하는 스타일 */
+.selected-image {
+    max-width: 200px; /* 이미지의 최대 너비 */
+    max-height: 200px; /* 이미지의 최대 높이 */
+    display: inline-block; /* 이미지를 인라인 블록 요소로 표시 */
+    margin: 0 10px; /* 이미지 간격 조정 */
+}
+
+/* 네모 박스 스타일 */
+.image-box {
+    display: inline-block; /* 부모 요소에 인라인 블록 요소로 표시 */
+    text-align: center; /* 이미지들을 가운데 정렬 */
+}
+
+/* 선택된 옷 이미지 위에 텍스트를 표시하기 위한 스타일 */
+#selected_clothes p {
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+}
