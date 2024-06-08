@@ -13,7 +13,7 @@
             <!-- Home Button -->
             <button type="button" class="deply-button" onclick="location.href='/'">데플리</button>
             <!-- Edit Profile Button -->
-            <button type="button" class="edit-profile-button" onclick="location.href='{% url 'edit_profile' %}'"></button>
+            <button type="button" class="edit-profile-button" onclick="location.href='{% url 'edit_profile' %}'">Edit Profile</button>
         </nav>
     </header>
 
@@ -28,6 +28,8 @@
     <p>Welcome, {{ user.username }}!</p>
     <a href="{% url 'edit_profile' %}">Edit Profile</a>
     <a href="{% url 'add_and_show' %}">Add and Show Pictures</a>
+    <a href="{% url 'cal:calendar' %}">Calendar</a>
+    <a href="{% url 'recommend_algorithm' %}">Recommendations</a>
     <form action="{% url 'logout' %}" method="post">
         {% csrf_token %}
         <button type="submit">Log Out</button>

@@ -5,10 +5,10 @@ from accounts import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path(''    , include('accounts.urls')),
-    path('' , include('add_clothes.urls')),  # URL 패턴 추가
-    path('' , include('cal.urls')),  # cal URL 패턴 추가
-    path('' , include('recommend.urls')),  # recommend URL 패턴 추가
-
+    # app 경로 수정.
+    path('add_clothes/', include('add_clothes.urls')),
+    path('cal/', include('cal.urls')),# cal URL 패턴 추가
+    path('recommend/', include('recommend.urls')),# recommend URL 패턴 추가
 
 ]
 
