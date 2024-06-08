@@ -221,11 +221,11 @@ body {
     text-align: right;
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
+/* 비밀번호 찾기*/
 /* 비밀번호 찾기 박스 */
 .find-account-container {
     position: relative;
-    top:10px;
+    top: 10px;
     width: 1329px;
     height: 792px;
     margin: 100px auto;
@@ -238,23 +238,8 @@ body {
     box-sizing: border-box;
 }
 
-/* 회원가입 박스 */
-.signup-container {
-    position: relative;
-    width: 1329px;
-    height: 792px;
-    margin: 100px auto;
-    background: #FFFEFC;
-    border: 2px solid #D9D9D9;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px;
-    box-sizing: border-box;
-}
-
-/* 회원가입(logo) */
-.signup-logo {
+/* 비밀번호 찾기(logo) */
+.find-account-logo {
     font-family: 'Monda', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -265,13 +250,13 @@ body {
 }
 
 /* Line (up) */
-.signup-line-up {
+.find-account-line {
     width: 100%;
     border: 3px solid #D9D9D9;
     margin-bottom: 60px;
 }
 
-/* EMAIL and PASSWORD input containers */
+/* EMAIL input container */
 .input-container {
     width: 557px;
     height: 61px;
@@ -292,16 +277,16 @@ body {
 }
 
 /* Line (down) */
-.signup-line-down {
+.find-account-line-down {
     width: 100%;
     border: 3px solid #D9D9D9;
     margin: 20px;
-    bottom:100px;
+    bottom: 100px;
 }
 
-/* 회원가입 버튼 */
-.signup-button {
-    width: 133px;
+/* 비밀번호 찾기 버튼 */
+.find-account-button {
+    width: 123px;
     height: 55px;
     background-color: #294CC8;
     color: white;
@@ -312,4 +297,14 @@ body {
     position: absolute;
     right: 20px;
     bottom: 60px;
+}
+
+/* Error messages */
+.error-messages {
+    position: absolute;
+    right: 40px;
+    bottom: 100px; /* Adjust this value to position above the find-account button */
+    color: red;
+    font-size: 16px;
+    text-align: right;
 }
