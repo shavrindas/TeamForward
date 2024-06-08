@@ -1,13 +1,31 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'accounts/css/styles.css' %}">
     <title>User Session Main Page</title>
 </head>
 <body>
-    <h1>User Session Main Page</h1>
-    <p>Welcome, {{ username }}!</p>
+    <header>
+        <nav>
+            <!-- Home Button -->
+            <button type="button" class="deply-button" onclick="location.href='/'">데플리</button>
+            <!-- Edit Profile Button -->
+            <button type="button" class="edit-profile-button" onclick="location.href='{% url 'edit_profile' %}'"></button>
+        </nav>
+    </header>
+
+    <!-- Logo -->
+    <div class="logo-container">
+        <div class="rectangle-12"></div>
+        <div class="rectangle-13"></div>
+        <div class="ready-for">Ready for</div>
+        <div class="daily">Daily</div>
+    </div>
+
+    <p>Welcome, {{ user.username }}!</p>
     <a href="{% url 'edit_profile' %}">Edit Profile</a>
     <a href="{% url 'add_and_show' %}">Add and Show Pictures</a>
     <form action="{% url 'logout' %}" method="post">
