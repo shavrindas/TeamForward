@@ -6,6 +6,7 @@ body {
     background-color: #FFFEFC;
 }
 
+/* 기본 */
 .deply-button {
     z-index: 10; /* Ensure buttons are on top */
     position: absolute;
@@ -108,8 +109,9 @@ body {
     border-radius: 100px;
     z-index: 3; /* Make sure background is below text */
 }
-
 /*--------------------------------------------------------------------------------------------*/
+
+
 /*Login box*/
 /* Login box container */
 .login-container {
@@ -221,7 +223,7 @@ body {
     text-align: right;
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-/* 비밀번호 찾기*/
+
 /* 비밀번호 찾기 박스 */
 .find-account-container {
     position: relative;
