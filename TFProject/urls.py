@@ -5,15 +5,22 @@ from accounts import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path(''    , include('accounts.urls')),
-    path('' , include('add_clothes.urls')),  # URL 패턴 추가
-    path('' , include('cal.urls')),  # cal URL 패턴 추가
-    path('' , include('recommend.urls')),  # recommend URL 패턴 추가
-
+    # app 경로 수정.
+    path('', include('add_clothes.urls')),
+    path('', include('cal.urls')),# cal URL 패턴 추가
+    path('', include('recommend.urls')),# recommend URL 패턴 추가
 
 ]
 
 
 '''
+
+    path('admin/', admin.site.urls),
+    path('' , include('accounts.urls')),
+    path('' , include('add_clothes.urls')),  # URL 패턴 추가
+    path('' , include('cal.urls')),  # cal URL 패턴 추가
+    path('' , include('recommend.urls')),  # recommend URL 패턴 추가
+
 
     path('yet/'         , views.yet, name='yet'),
     path('add/'         , views.add_and_show, name='add_and_show'),
