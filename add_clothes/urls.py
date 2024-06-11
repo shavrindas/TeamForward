@@ -10,5 +10,5 @@ from .views import add_and_show, delete_picture
 urlpatterns = [
     path('yet/', views.yet, name='yet'),
     path('add/', views.add_and_show, name='add_and_show'),
-    path('delete/<int:picture_id>/', delete_picture, name='delete_picture'),
+    path('delete/<int:picture_id>/', views.delete_picture, name='delete_picture'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

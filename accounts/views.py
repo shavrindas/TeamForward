@@ -38,6 +38,7 @@ def login(request):
             else:
                 response = redirect('user_session')
             response.set_cookie('user_id', user.id)
+            response.set_cookie('user_email', email)  # 이메일도 쿠키로 설정
             return response
         except UserData.DoesNotExist:
             messages.error(request, '유효하지 않은 이메일 또는 비밀번호입니다.')

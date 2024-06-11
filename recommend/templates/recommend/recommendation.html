@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothing Recommendation</title>
+</head>
+<body>
+    <h1>Choose Your Style {{ user_email }}</h1>
+    <form method="get" action="/recommend_clothes/">
+        <input type="hidden" name="latitude" value="37.7749">
+        <input type="hidden" name="longitude" value="-122.4194">
+        <button type="submit" name="situation" value="dandy">Dandy</button>
+        <button type="submit" name="situation" value="formal">Formal</button>
+        <button type="submit" name="situation" value="casual">Casual</button>
+        <button type="submit" name="situation" value="street">Street</button>
+        <button type="submit" name="situation" value="sporty">Sporty</button>
+    </form>
+    <h2>Recommended Clothing</h2>
+    <div>
+        <img src="{{ selected_bottom_image_path }}" alt="Bottom">
+        <img src="{{ selected_top_image_path }}" alt="Top">
+        <img src="{{ selected_outer_image_path }}" alt="Outer">
+    </div>
+    <form action="{% url 'save_recommendation' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="selected_bottom_image_path" value="{{ selected_bottom_image_path }}">
+        <input type="hidden" name="selected_top_image_path" value="{{ selected_top_image_path }}">
+        <input type="hidden" name="selected_outer_image_path" value="{{ selected_outer_image_path }}">
+        <input type="hidden" name="style" value="{{ selected_style }}">
+        <button type="submit">Save Recommendation</button>
+    </form>
+    
+</body>
+</html>
+
+
+
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothing Recommendation</title>
+</head>
+<body>
+    <h1>Clothing Recommendation</h1>
+    <div>
+        {% for image_path in default_image_paths %}
+            <img src="{{ image_path }}" alt="Clothing Image">
+        {% endfor %}
+
+        {% for image_name, image_path in image_paths.items %}
+            <img src="{{ image_path }}" alt="{{ image_name }}">
+        {% endfor %}
+    </div>
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendation</title>
+</head>
+<body>
+    <h1>User's Pictures</h1>
+    <div>
+        {% for picture_name, image_path in image_paths.items %}
+            <div>
+                <h3>{{ picture_name }}</h3>
+                <img src="{{ image_path }}" alt="{{ picture_name }}">
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
+-->
