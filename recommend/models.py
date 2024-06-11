@@ -1,11 +1,21 @@
 from django.db import models
 from datetime import date
+from accounts.models import UserData
+from add_clothes.models import UserPicture
+
+from django.contrib.auth.models import User
+from django.db import models
+
+from django.db import models
 
 class RecommendedClothes(models.Model):
-    date = models.DateField(default=date.today) 
-    top = models.CharField(max_length=100)
+    id = models.AutoField(primary_key=True)
+    user_email = models.EmailField(max_length=254)  # 사용자 이메일 필드 추가
     bottom = models.CharField(max_length=100)
-    outer = models.CharField(max_length=100, blank=True, null=True)
-    
-    def __str__(self):
-        return f"{self.date} - {self.top}, {self.bottom}, {self.outer}"
+    outer = models.CharField(max_length=100)
+    date = models.DateField()
+    top = models.CharField(max_length=100)
+    style = models.CharField(max_length=100)
+
+    class Meta:
+        db_table = 'recommended_clothes'
