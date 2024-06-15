@@ -1,0 +1,230 @@
+/* recommend/static/recommend/css/styles.css */
+/*++++++++++++++++++++++++++++++++++++== 기본 ++++++++++++++++++++++++++++++++++++++++++++++*/
+@charset "utf-8";
+
+body {
+    font-family: 'Monda', sans-serif;
+    background-color: #FFFEFC;
+}
+
+.deply-button {
+    z-index: 10; /* Ensure buttons are on top */
+    position: absolute;
+    width: 172px;
+    height: 101px;
+    left: 69px;
+    top: 29px;
+    font-family: 'Monda', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 62.0434px;
+    line-height: 101px;
+    text-align: center;
+    align-items: center;
+    color: #1A66D7;
+    border: none;
+    background: none;
+    cursor: pointer;
+    white-space: nowrap; /* 텍스트가 한 줄로 나오게 함 */
+}
+
+.sign-in-button {
+    z-index: 10; /* Ensure buttons are on top */
+    position: absolute;
+    width: 174px;
+    height: 58px;
+    right: 180px;
+    top: 65px;
+    font-family: 'Monda', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: #294CC8;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+}
+
+/*Logo*/
+/* Container for the logo */
+.logo-container {
+    position: relative;
+    width: 500px; /* Adjust width as needed */
+    height: 120px; /* Adjust height as needed */
+}
+
+/* Ready for text */
+.ready-for {
+    position: absolute;
+    width: 147px;
+    height: 52px;
+    left: 295px;
+    top: 58px;
+    font-family: 'Monda', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32.0119px;
+    line-height: 52px;
+    color: #5D5B56;
+    z-index: 2; /* Make sure text is on top */
+}
+/* Left box */
+.rectangle-12 {
+    position: absolute;
+    width: 225px;
+    height: 58px;
+    left: 271px;
+    top: 55px;
+    background: #D9D9D9;
+    border-radius: 100px;
+    z-index: 1; /* Make sure background is below text */
+}
+/* Daily text */
+.daily {
+    position: absolute;
+    width: 80px;
+    height: 52px;
+    left: 482px;
+    top: 58px;
+    font-family: 'Monda', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32.0119px;
+    line-height: 52px;
+    color: #FFFFFF;
+    z-index: 4; /* Make sure text is on top */
+}
+/* Right box */
+.rectangle-13 {
+    position: absolute;
+    width: 140px;
+    height: 58px;
+    left: 447px;
+    top: 55px;
+    background: #294CC8;
+    border-radius: 100px;
+    z-index: 3; /* Make sure background is below text */
+}
+
+/* Edit Profile Button */
+.edit-profile {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    left: 1212px;
+    top: 47px;
+    background: url('/static/recommend/image/user.png'); /* 절대 경로 사용 */
+    background-size: cover; /* 이미지 크기를 버튼 크기에 맞춤 */
+    border: none;
+    cursor: pointer;
+}
+
+/*================================ Log out ===================================*/
+/* Logout button styling */
+.logout-button {
+    background-color: #D9534F;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Logout form styling to align with other buttons */
+.logout-form {
+    position: absolute;
+    left: 1070px;
+    top: 90px;
+    margin: 0;
+    padding: 0;
+}
+/*================================ Log out ===================================*/
+/*++++++++++++++++++++++++++++++++++++== 기본 ++++++++++++++++++++++++++++++++++++++++++++++*/
+
+/* Weather section */
+#recommend_algorithm {
+    font-family: 'Monda', sans-serif;
+    background-color: #F3F4F6;
+    border: 2px solid #D9D9D9;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 40px 0; /* Increase top and bottom margins for spacing */
+    text-align: center;
+}
+
+/* Concept buttons */
+.concept-button {
+    font-family: 'Monda', sans-serif;
+    font-size: 18px;
+    color: white;
+    background-color: #1A66D7;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.concept-button:hover {
+    background-color: #1451A1;
+}
+
+/* Recommend button */
+.recommend-button {
+    font-family: 'Monda', sans-serif;
+    font-size: 18px;
+    color: white;
+    background-color: #294CC8;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.recommend-button:hover {
+    background-color: #1A66D7;
+}
+
+/* Image section styling */
+#selected_clothes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 40px; /* Increase top margin for spacing */
+}
+
+.image-box {
+    background-color: #FFFFFF;
+    border: 2px solid #D9D9D9;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Save recommendation button */
+.save-recommendation-button {
+    font-family: 'Monda', sans-serif;
+    font-size: 18px;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.save-recommendation-button:hover {
+    background-color: #388E3C;
+}

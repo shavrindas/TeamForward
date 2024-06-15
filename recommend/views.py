@@ -31,9 +31,9 @@ def recommend_clothes(request):
     season = get_current_month()
 
     # 기본 이미지 경로 설정
-    default_bottom_image_path = settings.MEDIA_URL + "user_pictures/1.jpg"
-    default_top_image_path = settings.MEDIA_URL + "user_pictures/1.jpg"
-    default_outer_image_path = settings.MEDIA_URL + "user_pictures/1.jpg"
+    default_bottom_image_path = settings.MEDIA_URL + "user_pictures/pants.png"
+    default_top_image_path = settings.MEDIA_URL + "user_pictures/shirt.png"
+    default_outer_image_path = settings.MEDIA_URL + "user_pictures/jumper.png"
 
     # 선택된 이미지 경로
     selected_bottom_image_name, selected_bottom_image_path = select_image_by_type_color_brightness(image_paths, ['bottom'], temperature=temperature, situation=situation, is_base=True)

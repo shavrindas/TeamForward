@@ -2,10 +2,6 @@ from django.db import models
 from datetime import date
 from accounts.models import UserData
 from add_clothes.models import UserPicture
-
-from django.contrib.auth.models import User
-from django.db import models
-
 from django.db import models
 
 class RecommendedClothes(models.Model):

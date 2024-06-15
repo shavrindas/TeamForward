@@ -1,84 +1,150 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clothing Recommendation</title>
-</head>
-<body>
-    <h1>Choose Your Style {{ user_email }}</h1>
-    <form method="get" action="/recommend_clothes/">
-        <input type="hidden" name="latitude" value="37.7749">
-        <input type="hidden" name="longitude" value="-122.4194">
-        <button type="submit" name="situation" value="dandy">Dandy</button>
-        <button type="submit" name="situation" value="formal">Formal</button>
-        <button type="submit" name="situation" value="casual">Casual</button>
-        <button type="submit" name="situation" value="street">Street</button>
-        <button type="submit" name="situation" value="sporty">Sporty</button>
-    </form>
-    <h2>Recommended Clothing</h2>
-    <div>
-        <img src="{{ selected_bottom_image_path }}" alt="Bottom">
-        <img src="{{ selected_top_image_path }}" alt="Top">
-        <img src="{{ selected_outer_image_path }}" alt="Outer">
+{% extends 'recommend/base.html' %}
+
+{% block title %}
+Recommendation
+{% endblock %}
+
+{% block content %}
+<h1 class="my-4">Choose Your Style {{ user_email }}</h1>
+<form method="get" action="/recommend_clothes/" class="mb-4">
+    <input type="hidden" name="latitude" value="37.7749">
+    <input type="hidden" name="longitude" value="-122.4194">
+    <div class="btn-group" role="group">
+        <button type="submit" name="situation" value="dandy" class="btn btn-primary">Dandy</button>
+        <button type="submit" name="situation" value="formal" class="btn btn-secondary">Formal</button>
+        <button type="submit" name="situation" value="casual" class="btn btn-success">Casual</button>
+        <button type="submit" name="situation" value="street" class="btn btn-info">Street</button>
+        <button type="submit" name="situation" value="sporty" class="btn btn-warning">Sporty</button>
     </div>
-    <form action="{% url 'save_recommendation' %}" method="post">
-        {% csrf_token %}
-        <input type="hidden" name="selected_bottom_image_path" value="{{ selected_bottom_image_path }}">
-        <input type="hidden" name="selected_top_image_path" value="{{ selected_top_image_path }}">
-        <input type="hidden" name="selected_outer_image_path" value="{{ selected_outer_image_path }}">
-        <input type="hidden" name="style" value="{{ selected_style }}">
-        <button type="submit">Save Recommendation</button>
-    </form>
-    
-</body>
-</html>
+</form>
 
+<h2 class="my-4">Recommended Clothing</h2>
+<div class="d-flex justify-content-around">
+    <img src="{{ selected_bottom_image_path }}" alt="Bottom" class="img-thumbnail">
+    <img src="{{ selected_top_image_path }}" alt="Top" class="img-thumbnail">
+    <img src="{{ selected_outer_image_path }}" alt="Outer" class="img-thumbnail">
+</div>
 
+<form action="{% url 'save_recommendation' %}" method="post" id="recommendationForm" class="mt-4">
+    {% csrf_token %}
+    <input type="hidden" name="selected_bottom_image_path" value="{{ selected_bottom_image_path }}">
+    <input type="hidden" name="selected_top_image_path" value="{{ selected_top_image_path }}">
+    <input type="hidden" name="selected_outer_image_path" value="{{ selected_outer_image_path }}">
+    <input type="hidden" name="style" value="{{ selected_style }}">
+    <button type="submit" class="btn btn-primary">Save Recommendation</button>
+</form>
+{% endblock %}
 
+{% block script %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        getLocation();
+    });
 
-<!--
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clothing Recommendation</title>
-</head>
-<body>
-    <h1>Clothing Recommendation</h1>
-    <div>
-        {% for image_path in default_image_paths %}
-            <img src="{{ image_path }}" alt="Clothing Image">
-        {% endfor %}
+    window.onload = function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const situation = urlParams.get('situation');
+        if (situation) {
+            document.getElementById('selectedSituation').textContent = situation;
+        }
+    }
 
-        {% for image_name, image_path in image_paths.items %}
-            <img src="{{ image_path }}" alt="{{ image_name }}">
-        {% endfor %}
-    </div>
-</body>
-</html>
+    function getLocation() {
+        var urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('latitude') && urlParams.has('longitude')) {
+            return;
+        }
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition, showError);
+        } else {
+            console.log("Geolocation is not supported by this browser.");
+        }
+    }
 
+    function showPosition(position) {
+        var lat = position.coords.latitude;
+        var lon = position.coords.longitude;
+        var currentPath = window.location.pathname;
+        var urlParams = new URLSearchParams(window.location.search);
+        var situation = urlParams.get('situation');
+        var weatherURL = currentPath + '?latitude=' + lat + '&longitude=' + lon;
+        if (situation) {
+            weatherURL += '&situation=' + situation;
+        }
+        window.location.href = weatherURL;
+    }
 
+    function showError(error) {
+        switch(error.code) {
+            case error.PERMISSION_DENIED:
+                console.log("User denied the request for Geolocation.");
+                alert("User denied the request for Geolocation.");
+                break;
+            case error.POSITION_UNAVAILABLE:
+                console.log("Location information is unavailable.");
+                alert("Location information is unavailable.");
+                break;
+            case error.TIMEOUT:
+                console.log("The request to get user location timed out.");
+                alert("The request to get user location timed out.");
+                break;
+            case error.UNKNOWN_ERROR:
+                console.log("An unknown error occurred.");
+                alert("An unknown error occurred.");
+                break;
+        }
+    }
 
+    function selectSituation(situation) {
+        fetch('/recommend/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': '{{ csrf_token }}'
+            },
+            body: JSON.stringify({ situation: situation })
+        }).then(() => {
+            document.getElementById('selectedSituation').textContent = situation;
+            window.history.pushState({}, '', window.location.pathname + '?situation=' + situation);
+            window.location.reload();
+        });
+    }
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recommendation</title>
-</head>
-<body>
-    <h1>User's Pictures</h1>
-    <div>
-        {% for picture_name, image_path in image_paths.items %}
-            <div>
-                <h3>{{ picture_name }}</h3>
-                <img src="{{ image_path }}" alt="{{ picture_name }}">
-            </div>
-        {% endfor %}
-    </div>
-</body>
-</html>
--->
+    function recommendButton() {
+        fetch('/recommend/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': '{{ csrf_token }}'
+            },
+            body: JSON.stringify({ recommend: 'true' })
+        }).then(() => {
+            window.location.reload();
+        });
+    }
+
+    function saveRecommendation() {
+        var form = document.getElementById('recommendationForm');
+        var formData = new FormData(form);
+
+        fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}'
+            }
+        }).then(response => {
+            if (response.ok) {
+                console.log('추천된 옷이 성공적으로 저장되었습니다.');
+                window.alert('추천된 옷이 성공적으로 저장되었습니다.');
+            } else {
+                console.error('추천된 옷을 저장하는 도중 오류가 발생했습니다.');
+                window.alert('추천된 옷을 저장하지 못했습니다.');
+            }
+        }).catch(error => {
+            console.error('추천된 옷을 저장하는 도중 오류가 발생했습니다:', error);
+            window.alert('추천된 옷을 저장하지 못했습니다.');
+        });
+    }
+</script>
+{% endblock %}
