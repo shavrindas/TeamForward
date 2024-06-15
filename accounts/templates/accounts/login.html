@@ -27,25 +27,25 @@
 
     <div class="login-container">
         <div class="login-box">
-            <h1 class="login-logo">로그인</h1>
+            <div class="login-logo">Log In</div>
             <div class="line"></div>
             
             <form action="{% url 'login' %}" method="post" style="width: 100%; display: flex; flex-direction: column; gap: 20px;">
                 {% csrf_token %}
                 
                 <div class="input-container">
-                    <input type="email" id="email" name="email" placeholder="이메일">
+                    <input type="email" id="email" name="email" placeholder="E-mail">
                 </div>
                 
                 <div class="input-container">
-                    <input type="password" id="password" name="password" placeholder="비밀번호">
+                    <input type="password" id="password" name="password" placeholder="Password">
                 </div>
                 
                 <button type="submit" class="login-button">Log In</button>
             </form>
             
-            <a href="{% url 'find_account' %}" class="forgot-password-link">비밀번호 찾기</a>
-            <a href="{% url 'signup' %}" class="signup-link">회원가입</a>
+            <a href="{% url 'find_account' %}" class="forgot-password-link">Forgot Password</a>
+            <a href="{% url 'signup' %}" class="signup-link">Sign Up</a>
             
             <!-- Error messages -->
             {% if messages %}

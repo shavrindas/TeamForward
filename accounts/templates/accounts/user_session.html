@@ -11,9 +11,14 @@
     <header>
         <nav>
             <!-- Home Button -->
-            <button type="button" class="deply-button" onclick="location.href='/'">데플리</button>
+            <button type="button" class="deply-button" onclick="location.href='{% url 'user_session' %}'">데플리</button>
+            <!-- Log Out Button -->
+            <form action="{% url 'logout' %}" method="post" class="logout-form">
+                {% csrf_token %}
+                <button type="submit" class="logout-button">Log Out</button>
+            </form>
             <!-- Edit Profile Button -->
-            <button type="button" class="edit-profile-button" onclick="location.href='{% url 'edit_profile' %}'">Edit Profile</button>
+            <button type="button" class="edit-profile" onclick="location.href='{% url 'edit_profile' %}'"></button>
         </nav>
     </header>
 
@@ -24,15 +29,26 @@
         <div class="ready-for">Ready for</div>
         <div class="daily">Daily</div>
     </div>
-    <p>Welcome, {{ username }}!</p>  <!-- Display email -->
-    <a href="{% url 'edit_profile' %}">Edit Profile</a>
-    <a href="{% url 'add_and_show' %}">Add and Show Pictures</a>
-    <a href="{% url 'calendar' %}">Calendar</a>
 
-    <a href="{% url 'recommend_clothes' %}">the what now?</a>
-    <form action="{% url 'logout' %}" method="post">
-        {% csrf_token %}
-        <button type="submit">Log Out</button>
-    </form>
+    <div class="welcome-message">
+        <p>Welcome, {{ username }}!</p>
+    </div>
+
+    <!-- Buttons -->
+    <div class="buttons-container">
+        <a href="{% url 'recommend_clothes' %}" class="button recommendation-button">
+            <div class="button-text-large">Styling</div>
+            <div class="button-icon icon1"></div>
+        </a>
+        <a href="{% url 'cal:calendar' %}" class="button calendar-button">
+            <div class="button-text-large">Calendar</div>
+            <div class="button-icon icon2"></div>
+        </a>
+        <a href="{% url 'add_and_show' %}" class="button pictures-button">
+            
+            <div class="button-text-large">Clothes</div>
+            <div class="button-icon icon3"></div>
+        </a>
+    </div>
 </body>
 </html>

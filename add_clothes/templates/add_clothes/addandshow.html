@@ -1,26 +1,55 @@
-<!-- add_clothes/addandshow.html -->
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'add_clothes/css/styles.css' %}">
     <title>Add and Show Pictures</title>
 </head>
 <body>
-    <h1>Welcome, {{ user.email }}</h1> <!-- 사용자 이메일을 출력합니다. -->
+    <header>
+        <nav>
+            <!-- Home Button -->
+            <button type="button" class="deply-button" onclick="location.href='{% url 'user_session' %}'">데플리</button>
+            <!-- Log Out Button -->
+            <form action="{% url 'logout' %}" method="post" class="logout-form">
+                {% csrf_token %}
+                <button type="submit" class="logout-button">Log Out</button>
+            </form>
+            <!-- Edit Profile Button -->
+            <button type="button" class="edit-profile" onclick="location.href='{% url 'edit_profile' %}'"></button>
+        </nav>
+    </header>
+
+    <!-- Logo -->
+    <div class="logo-container">
+        <div class="rectangle-12"></div>
+        <div class="rectangle-13"></div>
+        <div class="ready-for">Ready for</div>
+        <div class="daily">Daily</div>
+    </div>
+
+    <div class="add-picture-container">
+        <h1>Welcome, {{ user.email }}</h1> <!-- 사용자 이메일을 출력합니다. -->
     
-    <h1>Add a Picture</h1>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <input type="file" name="picture"> <!-- 파일 선택을 위한 input 태그를 추가합니다. -->
-        <button type="submit">Upload</button>
-    </form>
+        <h1>Add a Picture</h1>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="picture" class="file-input"> <!-- 파일 선택을 위한 input 태그를 추가합니다. -->
+            <button type="submit" class="upload-button">Upload</button>
+        </form>
+    </div>
     
-    <h1>Uploaded Pictures</h1>
-    {% for picture in pictures %}
-        <div>
-            <img src="{{ picture.picture.url }}" alt="User Picture" width="50" height="50">
-            <p>{{ picture.picture_name }}</p> <!-- picture_name을 출력합니다. -->
-            <a href="{% url 'delete_picture' picture.id %}">Delete</a> <!-- 삭제 링크를 추가합니다. -->
-        </div>
-    {% endfor %}
+    <div class="uploaded-pictures-container">
+        <h1>Uploaded Pictures</h1>
+        {% for picture in pictures %}
+            <div class="picture-box">
+                <img src="{{ picture.picture.url }}" alt="User Picture">
+                <p>{{ picture.picture_name }}</p> <!-- picture_name을 출력합니다. -->
+                <a href="{% url 'delete_picture' picture.id %}">Delete</a> <!-- 삭제 링크를 추가합니다. -->
+            </div>
+        {% endfor %}
+    </div>
 </body>
 </html>

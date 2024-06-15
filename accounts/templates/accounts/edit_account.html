@@ -1,4 +1,3 @@
-<!-- edit_account.html -->
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -6,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'accounts/css/styles.css' %}">
+    <title>Edit Account</title>
 </head>
 <body>
     <header>
@@ -13,11 +13,12 @@
             <!-- Home Button -->
             <button type="button" class="deply-button" onclick="location.href='/'">데플리</button>
             <!-- Login Button -->
-            <button type="button" class="sign-in-button" onclick="location.href='login'">Sign In</button>
+            <button type="button" class="sign-in-button" onclick="location.href='{% url 'login' %}'">Sign In</button>
             <!-- option -->
             <!--login버튼 옆에 따로 구현-->
         </nav>
     </header>
+    
     <!-- Logo -->
     <div class="logo-container">
         <div class="rectangle-12"></div>
@@ -26,17 +27,36 @@
         <div class="daily">Daily</div>
     </div>
 
-    <h1>Edit Account</h1>
-    <!-- Edit account form -->
-    <form action="{% url 'edit_account' %}" method="post">
-        {% csrf_token %}
-        <!-- Form fields for editing account -->
-        <input type="hidden" id="user_id" name="user_id" value="{{ user_id }}">
-        <label for="new_password">New Password:</label>
-        <input type="password" id="new_password" name="new_password">
-        <label for="confirm_password">Confirm Password:</label>
-        <input type="password" id="confirm_password" name="confirm_password">
-        <button type="submit">Save Changes</button>
-    </form>
+    <!-- Edit Account Box -->
+    <div class="login-container">
+        <div class="login-box">
+            <!-- Title -->
+            <h1 class="login-logo">Edit Account</h1>
+            <!-- Line -->
+            <div class="line"></div>
+
+            <!-- Form for editing account -->
+            <form action="{% url 'edit_account' %}" method="post" style="width: 100%; display: flex; flex-direction: column; gap: 20px;">
+                {% csrf_token %}
+                <!-- Hidden User ID -->
+                <input type="hidden" id="user_id" name="user_id" value="{{ user_id }}">
+
+                <!-- New Password Input -->
+                <div class="input-container">
+                    <label for="new_password"></label>
+                    <input type="password" id="new_password" name="new_password" placeholder="새로운 비밀번호">
+                </div>
+
+                <!-- Confirm Password Input -->
+                <div class="input-container">
+                    <label for="confirm_password"></label>
+                    <input type="password" id="confirm_password" name="confirm_password" placeholder="비밀번호 확인">
+                </div>
+
+                <!-- Edit Account Button -->
+                <button type="submit" class="login-button">Save Changes</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

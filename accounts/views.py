@@ -57,7 +57,7 @@ def user_session(request):
     else:
         return redirect('login')
     
-
+    
 def find_account(request):
     if request.method == 'POST':
         email = request.POST.get('email')

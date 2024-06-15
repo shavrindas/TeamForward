@@ -1,4 +1,4 @@
-<!-- account/find_account.html-->
+<!-- accounts/find_account.html -->
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +14,7 @@
             <!-- Home Button -->
             <button type="button" class="deply-button" onclick="location.href='/'">데플리</button>
             <!-- Login Button -->
-            <button type="button" class="sign-in-button" onclick="location.href='login'">Sign In</button>
+            <button type="button" class="sign-in-button" onclick="location.href='{% url 'login' %}'">Sign In</button>
         </nav>
     </header>
 
@@ -28,15 +28,23 @@
     <!-- Password Retrieval Box -->
     <div class="find-account-container">
         <!-- Logo -->
-        <div class="find-account-logo">비밀번호 찾기</div>
+        <div class="find-account-logo">Forgot Password</div>
         <!-- Line -->
         <div class="find-account-line"></div>
-        <!-- Email Input -->
-        <div class="input-container">
-            <input type="email" id="email" name="email" placeholder="이메일">
-        </div>
-        <!-- Find Account Button -->
-        <button type="submit" class="find-account-button">Find Account</button>
+        
+        <!-- Form for finding account -->
+        <form action="{% url 'find_account' %}" method="post" style="width: 100%; display: flex; flex-direction: column; gap: 20px;">
+            {% csrf_token %}
+            <!-- Email Input -->
+            <div class="input-container">
+                <input type="email" id="email" name="email" placeholder="E-mail">
+            </div>
+            <!-- Find Account Button -->
+            <button type="submit" class="find-account-button">Find Account</button>
+        </form>
+        
+        <!-- Line (down) -->
+        <div class="find-account-line-down"></div>
         
         <!-- Error messages -->
         {% if messages %}

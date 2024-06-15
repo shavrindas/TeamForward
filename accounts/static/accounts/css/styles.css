@@ -112,44 +112,41 @@ body {
 /*++++++++++++++++++++++++++++++++++++== 기본 ++++++++++++++++++++++++++++++++++++++++++++++*/
 
 
-/*Login box*/
+/*=================================Login box====================================*/
 /* Login box container */
 .login-container {
-    margin-top: 100px; /* Adjust this value to move the login box further down */
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    padding-bottom: 75px; /* Adjust bottom padding for more space at the bottom */
+    margin-top: 100px; /* Adjust this value to move the login box further down */
 }
 
 /* Login box */
 .login-box {
-    box-sizing: border-box;
-    width: 629px;
-    height:613px;
-    padding: 40px;
+    width: 100%;
+    max-width: 500px;
     background: #FFFEFC;
     border: 2px solid #D9D9D9;
+    padding: 40px;
+    margin-bottom: 20px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    position: relative;
 }
 
 /* Log in button */
 .login-button {
-    width: 123px;
-    height: 40px;
-    background-color: #294CC8;
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
     color: white;
+    background-color: #294CC8;
     border: none;
     border-radius: 5px;
-    font-size: 18px;
     cursor: pointer;
-    position: absolute;
-    right: 40px;
-    bottom: 20px;
+    text-align: center;
 }
 
 /* Line */
@@ -163,8 +160,6 @@ body {
 /* 회원가입, 비밀번호 찾기 링크 */
 .signup-link, .forgot-password-link {
     font-family: 'Monda', sans-serif;
-    font-style: normal;
-    font-weight: 400;
     font-size: 18px;
     color: #1A66D7;
     cursor: pointer;
@@ -173,28 +168,22 @@ body {
 }
 
 .signup-link {
-    position: absolute;
-    left: 40px;
-    bottom: 20px;
+    margin-top: 10px; /* Adjust spacing as needed */
 }
 
 .forgot-password-link {
-    position: absolute;
-    left: 40px;
-    bottom: 50px; /* To place it above the signup link */
+    margin-top: 5px; /* Adjust spacing as needed */
 }
 
 /* 로그인(logo) */
 .login-logo {
     font-family: 'Monda', sans-serif;
-    font-style: normal;
-    font-weight: 400;
     font-size: 48px; /* Enlarge the font size */
     color: #737373;
     margin-bottom: 0px; /* Reduce space between text and line */
 }
 
-/* EMAIL and PASSWORD input containers */
+/* EMAIL and PASSWORD FIND_ACCOUT etc. input containers */
 .input-container {
     width: 100%;
     display: flex;
@@ -215,60 +204,56 @@ body {
 
 /* Error messages */
 .error-messages {
-    position: absolute;
-    right: 40px;
-    bottom: 100px; /* Adjust this value to position above the signup link */
     color: red;
     font-size: 16px;
     text-align: right;
 }
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*=================================Login box====================================*/
 
-/* 비밀번호 찾기 박스 */
+
+/*=================================Find_Account box====================================*/
+/* Find Account box */
+/* Find Account container */
 .find-account-container {
-    position: relative;
-    top: 10px;
-    width: 1329px;
-    height: 792px;
-    margin: 100px auto;
-    background: #FFFEFC;
-    border: 2px solid #D9D9D9;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;  /* Center the container vertically */
+    margin: 100px auto;
+    width: 100%;
+    max-width: 600px;  /* Increase the maximum width */
+    background: #FFFEFC;
+    border: 2px solid #D9D9D9;
     padding: 40px;
+    border-radius: 10px;
     box-sizing: border-box;
 }
 
-/* 비밀번호 찾기(logo) */
+/* Find Account logo */
 .find-account-logo {
     font-family: 'Monda', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 63.6017px;
-    line-height: 104px;
+    font-size: 48px;
     color: #737373;
-    margin-bottom: 20px;
+    margin-bottom: 40px;  /* Increase the margin at the bottom */
 }
 
 /* Line (up) */
 .find-account-line {
     width: 100%;
-    border: 3px solid #D9D9D9;
-    margin-bottom: 60px;
+    border: 1px solid #D9D9D9;
+    margin-bottom: 40px;  /* Increase the margin at the bottom */
 }
 
-/* EMAIL input container */
+/* Input container */
 .input-container {
-    width: 557px;
-    height: 61px;
+    width: 100%;
     display: flex;
     align-items: center;
     background: #FFFFFF;
     border: 1px solid #D9D9D9;
     border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 40px;
+    padding: 15px;  /* Increase the padding */
+    margin-bottom: 30px;  /* Increase the margin at the bottom */
 }
 
 .input-container input {
@@ -281,106 +266,284 @@ body {
 /* Line (down) */
 .find-account-line-down {
     width: 100%;
-    border: 3px solid #D9D9D9;
-    margin: 20px;
-    bottom: 100px;
+    border: 1px solid #D9D9D9;
+    margin: 40px 0;  /* Increase the margin */
 }
 
-/* 비밀번호 찾기 버튼 */
+/* Find Account button */
 .find-account-button {
-    width: 123px;
-    height: 55px;
-    background-color: #294CC8;
+    width: 100%;
+    padding: 15px;  /* Increase the padding */
+    font-size: 18px;
     color: white;
+    background-color: #294CC8;
     border: none;
     border-radius: 5px;
-    font-size: 18px;
     cursor: pointer;
-    position: absolute;
-    right: 20px;
-    bottom: 60px;
+    text-align: center;
+    margin-top: 30px;  /* Increase the margin at the top */
 }
 
 /* Error messages */
 .error-messages {
-    position: absolute;
-    right: 40px;
-    bottom: 100px; /* Adjust this value to position above the find-account button */
     color: red;
     font-size: 16px;
     text-align: right;
+    margin-top: 20px;
 }
-/*========================================================================================*/
 
-/*회원가입. signup.html*/
-/* 회원가입 박스 */
+/*=================================Find_Account box====================================*/
+
+
+/*=================================Sign Up box====================================*/
+/* Sign Up box container */
 .signup-container {
-    margin-top: 100px; /* Adjust this value to move the signup box further down */
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    padding-bottom: 75px; /* Adjust bottom padding for more space at the bottom */
+    margin-top: 100px; /* Adjust this value to move the signup box further down */
 }
 
-/* 회원가입 박스 */
+/* Sign Up box */
 .signup-box {
-    box-sizing: border-box;
-    width: 629px;
-    height: 613px;
-    padding: 40px;
+    width: 100%;
+    max-width: 500px;
+    max-height: 700px;
     background: #FFFEFC;
     border: 2px solid #D9D9D9;
+    padding: 40px;
+    margin-bottom: 20px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    position: relative;
 }
 
-/* 회원가입 버튼 */
+/* Sign Up button */
 .signup-button {
-    width: 123px;
-    height: 40px;
-    background-color: #294CC8;
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
     color: white;
+    background-color: #294CC8;
     border: none;
     border-radius: 5px;
-    font-size: 18px;
     cursor: pointer;
-    position: absolute;
-    right: 40px;
-    bottom: 20px;
+    text-align: center;
 }
 
-/* 위에 있는 라인 */
-.signup-line-up {
+/* Line */
+.signup-line-up, .signup-line-down {
     width: 100%;
     border: 1px solid #D9D9D9;
     margin-top: 0px; /* Adjust this value to reduce space between text and line */
     margin-bottom: 5px;
 }
 
-/* 아래 있는 라인 */
-.signup-line-down {
-    width: 100%;
-    border: 1px solid #D9D9D9;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-/* 회원가입(logo) */
+/* Sign Up logo */
 .signup-logo {
     font-family: 'Monda', sans-serif;
-    font-style: normal;
-    font-weight: 400;
     font-size: 48px; /* Enlarge the font size */
     color: #737373;
     margin-bottom: 0px; /* Reduce space between text and line */
 }
-/*========================================================================================*/
+
+/* Input container */
+.input-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background: #FFFFFF;
+    border: 1px solid #D9D9D9;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20x;
+}
+
+.input-container input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 18px;
+}
+/*=================================Sign Up box====================================*/
+
+
+/*=================================Edit Account box====================================*/
+/* Edit Account box container */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px; /* Adjust this value to move the box further down */
+}
+
+/* Edit Account box */
+.login-box {
+    width: 100%;
+    max-width: 500px;
+    background: #FFFEFC;
+    border: 2px solid #D9D9D9;
+    padding: 40px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Edit Account button */
+.login-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    color: white;
+    background-color: #294CC8;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Line */
+.line {
+    width: 100%;
+    border: 1px solid #D9D9D9;
+    margin-top: 0px; /* Adjust this value to reduce space between text and line */
+    margin-bottom: 5px;
+}
+
+/* Labels */
+label {
+    font-family: 'Monda', sans-serif;
+    font-size: 18px;
+    color: #5D5B56;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Input container */
+.input-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background: #FFFFFF;
+    border: 1px solid #D9D9D9;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.input-container input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 18px;
+}
+
+/* Error messages */
+.error-messages {
+    color: red;
+    font-size: 16px;
+    text-align: right;
+}
+/*=================================Edit Account box====================================*/
+
 
 /* user_session */
 /* accounts/static/accounts/css/styles.css */
+
+/* Edit Profile Button */
+.edit-profile {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    left: 1212px;
+    top: 47px;
+    background: url('/static/accounts/image/user.png'); /* 절대 경로 사용 */
+    background-size: cover; /* 이미지 크기를 버튼 크기에 맞춤 */
+    border: none;
+    cursor: pointer;
+}
+
+/*================================ Log out ===================================*/
+/* Logout button styling */
+.logout-button {
+    background-color: #D9534F;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Logout form styling to align with other buttons */
+.logout-form {
+    position: absolute;
+    left: 1070px;
+    top: 90px;
+    margin: 0;
+    padding: 0;
+}
+
+/*================================ Log out ===================================*/
+
+
+/* edit_profile.html*/
+/* Edit Profile Page Styles */
+.profile-edit-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 500px;
+    background: #FFFEFC;
+    border: 2px solid #D9D9D9;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.form-label {
+    font-family: 'Monda', sans-serif;
+    font-size: 18px;
+    color: #5D5B56;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border: 1px solid #D9D9D9;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    color: white;
+    background-color: #294CC8;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.delete-button {
+    background-color: #D9534F;
+}
 
 /* Edit Profile Button */
 .edit-profile-button {
@@ -389,8 +552,121 @@ body {
     height: 66px;
     left: 1212px;
     top: 47px;
-    background: url('/static/accounts/image/user.png'); /* 절대 경로 사용 */
-    background-size: cover; /* 이미지 크기를 버튼 크기에 맞춤 */
+    background: url('accounts/image/user.png'); /* 적절한 이미지 파일 경로로 변경 */
+    background-size: cover;
     border: none;
     cursor: pointer;
 }
+/*======================================================================================*/
+
+/*=================================Welcome Message====================================*/
+/* Welcome message container */
+.welcome-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    font-family: 'Monda', sans-serif;
+    font-size: 24px;
+    color: #737373;
+    background: #FFFEFC;
+    border: 2px solid #D9D9D9;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.welcome-message p {
+    margin: 0;
+    font-weight: 700;
+    color: #294CC8;
+}
+/*=================================Welcome Message====================================*/
+
+/*============================= button of usersession =======================*/
+/* General button styling */
+.buttons-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.button {
+    position: relative;
+    width: 305px;
+    height: 600px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left:20px;
+    margin-right:20px;
+    margin-bottom:40px;
+    border-radius: 59.8256px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 20px;
+    color: #FFFFFF;
+    text-align: center;
+    font-family: 'Monda', sans-serif;
+    text-decoration: none; /* Ensure text is not underlined */
+}
+
+/* Text styles */
+.button-text-small {
+    font-weight: 700;
+    font-size: 29.7424px;
+    line-height: 48px;
+    margin-bottom: 10px;
+}
+
+.button-text-large {
+    font-weight: 700;
+    font-size: 65px;
+    line-height: 106px;
+    width: 90%;
+}
+
+/* Icon styles */
+.button-icon {
+    position: absolute;
+    width: 213px;
+    height: 213px;
+    bottom: 20px;
+    right: 20px;
+    background: url('accounts/image/user.png');
+}
+
+/* Specific button styles */
+
+/* Recommendation button */
+.recommendation-button {
+    background: #E95454;
+}
+
+.recommendation-button .button-icon1 {
+    background: url('accounts/image/hoodie.png'); /* Adjust the image path as needed */
+}
+
+/* Calendar button */
+.calendar-button {
+    background: #1A66D7;
+}
+
+.calendar-button .button-icon2 {
+    background: url('accounts/image/calendar.png'); /* Adjust the image path as needed */
+}
+
+/* Pictures button */
+.pictures-button {
+    background: #203CA0;
+}
+
+.pictures-button .button-icon3 {
+    background: url('accounts/image/hanger.png'); /* Adjust the image path as needed */
+}
+/*============================= button of usersession =======================*/
