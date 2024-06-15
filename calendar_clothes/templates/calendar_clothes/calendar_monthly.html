@@ -1,0 +1,32 @@
+<!-- calendar_clothes/templates/calendar_clothes/calendar_monthly.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Monthly Calendar</title>
+    <style>
+        /* CSS 스타일링 */
+        .calendar {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #ccc;
+        }
+        .calendar td {
+            border: 1px solid #ccc;
+            text-align: center;
+            padding: 5px;
+        }
+        .date {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Monthly Calendar</h1>
+    <h2>{{ year }}년 {{ month }}월</h2>
+    <div>
+        {{ calendar|safe }}
+    </div>
+</body>
+</html>
