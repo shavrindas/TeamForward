@@ -57,30 +57,7 @@ def user_session(request):
     else:
         return redirect('login')
     
-''''
-def user_session(request):
-    user_id = request.COOKIES.get('user_id')
-    if user_id:
-        user = get_object_or_404(UserData, id=user_id)
-        return render(request, 'accounts/user_session.html', {'username': user.email})
-    else:
-        return redirect('login')
 
-
-#@login_required
-def user_session(request):
-    if request.user.is_authenticated:  # 사용자가 인증되어 있는지 확인
-        user = request.user
-        return render(request, 'accounts/user_session.html', {'username': user.email})
-    else:
-        next_page = request.GET.get('next')
-        if next_page == 'add_and_show':
-            return redirect(reverse('login') + '?next=add_and_show')  # 로그인 페이지로 리다이렉트하고, 로그인 후에는 add_and_show 페이지로 이동
-        else:
-            return redirect('login')  # 로그인 페이지로 리다이렉트
-''' 
-    
-    
 def find_account(request):
     if request.method == 'POST':
         email = request.POST.get('email')
