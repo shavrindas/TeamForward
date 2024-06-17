@@ -1,0 +1,59 @@
+<!-- templates/calendar_v2/event_detail.html -->
+{% extends 'calendar_v2/base.html' %}
+
+{% block title %}
+    {% if event %}
+        {{ event.title }}
+    {% else %}
+        이벤트 없음
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <div class="form-group">
+        <label>제목:</label>
+        <p class="form-control-static">{{ event.title }}</p>
+    </div>
+    <div class="form-group">
+        <label>설명:</label>
+        <p class="form-control-static">{{ event.description }}</p>
+    </div>
+    <div class="form-group">
+        <label>일정 날짜:</label>
+        <p class="form-control-static">{{ event.date }}</p>
+    </div>
+    
+    <div class="form-group">
+        <label>추천 의류:</label>
+        {% if recommended_clothes %}
+            <div class="row">
+                {% for item in recommended_clothes %}
+                    <div class="col-md-4">
+                        <h5>Top</h5>
+                        <img src="{{ item.top_url }}" class="img-fluid" alt="Top">
+                        <h5>Bottom</h5>
+                        <img src="{{ item.bottom_url }}" class="img-fluid" alt="Bottom">
+                        <h5>Outer</h5>
+                        <img src="{{ item.outer_url }}" class="img-fluid" alt="Outer">
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Outer</h5>
+                    <img src="/media/user_pictures/jumper.png" class="img-fluid" alt="Outer">
+                    <h5>Top</h5>
+                    <img src="/media/user_pictures/shirt.png" class="img-fluid" alt="Top">
+                    <h5>Bottom</h5>
+                    <img src="/media/user_pictures/pants.png" class="img-fluid" alt="Bottom">
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    <a href="{% url 'cal2:event_edit2' event.id %}" class="btn btn-primary">수정</a>
+    <a href="{% url 'cal2:event_delete2' event.id %}" class="btn btn-danger">삭제</a>
+    <a href="{% url 'cal2:calendar_v2' %}" class="btn btn-info">돌아가기</a>
+{% endblock %}
+

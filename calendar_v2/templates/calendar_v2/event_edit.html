@@ -1,0 +1,32 @@
+<!-- templates/calendar_v2/event_edit.html -->
+{% extends 'calendar_v2/base.html' %}
+
+{% block title %}
+    {% if event %}
+        {{ event.title }} 수정
+    {% else %}
+        이벤트 없음
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <form method="POST" action="{% url 'cal2:event_edit2' event.id %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_title">제목:</label>
+            <input type="text" class="form-control" id="id_title" name="title" value="{{ form.title.value }}">
+        </div>
+        <div class="form-group">
+            <label for="id_description">설명:</label>
+            <textarea class="form-control" id="id_description" name="description">{{ form.description.value }}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="id_date">일정 날짜:</label>
+            <input type="text" class="form-control" id="id_date" name="date_display" value="{{ form.date.value }}" disabled>
+            <input type="hidden" name="date" value="{{ form.date.value }}">
+        </div>
+        <button type="submit" class="btn btn-primary">저장</button>
+    </form>
+    <a href="{% url 'cal2:event_delete2' event.id %}" class="btn btn-danger">삭제</a>
+    <a href="{% url 'cal2:calendar_v2' %}" class="btn btn-info">돌아가기</a>
+{% endblock %}
