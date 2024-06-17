@@ -63,7 +63,7 @@ def find_account(request):
         email = request.POST.get('email')
         if UserData.objects.filter(email=email).exists():
             user = UserData.objects.get(email=email)
-            return render(request, 'accounts/edit_account.html', {'user_id': user.id})
+            return render(request, 'accounts/edit_account.html', {'user_id': user.email})
         else:
             messages.error(request, '해당 이메일로 가입된 계정을 찾을 수 없습니다.')
             return render(request, 'accounts/find_account.html')
