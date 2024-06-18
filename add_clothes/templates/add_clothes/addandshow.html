@@ -6,7 +6,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'add_clothes/css/styles.css' %}">
     <title>Add and Show Pictures</title>
+    <style>
+        body {
+            background-image: url("{% static 'image/p3.png' %}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed; 
+        }
+        .add-picture-container {
+
+            background-color: #FFFFFF;
+            padding: 20px;
+            border-radius: 10px;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            margin-top: 50px;
+            width: 1200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);   
+        }
+    
+        .add-picture-container h1 {
+            margin-bottom: 10px; /* 제목과 내용 사이에 여백을 추가합니다. */
+        }
+    
+        .file-input {
+            margin-right: 10px; /* 파일 입력 필드와 버튼 사이의 여백을 추가합니다. */
+        }
+    
+        .upload-button {
+            background-color: #4CAF50; /* 업로드 버튼의 배경색을 설정합니다. */
+            color: white; /* 텍스트 색상을 흰색으로 설정합니다. */
+            border: none; /* 테두리를 없앱니다. */
+            padding: 10px 20px; /* 내부 여백을 추가합니다. */
+            cursor: pointer; /* 마우스 커서를 포인터로 설정합니다. */
+            border-radius: 5px; /* 모서리를 둥글게 만듭니다. */
+        }
+    
+        .upload-button:hover {
+            background-color: #45a049; /* 마우스 호버시 배경색을 변경합니다. */
+        }
+    </style>
+    
+
 </head>
+
 <body>
     <header>
         <nav>
@@ -30,6 +75,7 @@
         <div class="daily">Daily</div>
     </div>
 
+    <!-- Add Picture Container -->
     <div class="add-picture-container">
         <h1>Welcome, {{ user.email }}</h1> <!-- 사용자 이메일을 출력합니다. -->
     
@@ -41,6 +87,7 @@
         </form>
     </div>
     
+    <!-- Uploaded Pictures Container -->
     <div class="uploaded-pictures-container">
         <h1>Uploaded Pictures</h1>
         {% for picture in pictures %}

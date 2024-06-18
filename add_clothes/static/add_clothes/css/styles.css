@@ -148,7 +148,14 @@ body {
 /* Container for the add picture form */
 .add-picture-container {
     text-align: center;
-    margin: 50px 0;
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 1200px;
+    box-shadow: 0 4px 8px rgba(54, 26, 26, 0.1);
 }
 
 .add-picture-container h1 {

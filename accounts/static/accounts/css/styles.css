@@ -594,26 +594,21 @@ label {
     justify-content: center;
     margin-top: 50px;
 }
-
 .button {
     position: relative;
-    width: 305px;
-    height: 600px;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-left:20px;
-    margin-right:20px;
-    margin-bottom:40px;
-    border-radius: 59.8256px;
+    width: 305px; /* 버튼 너비 */
+    height: 600px; /* 버튼 높이 */
+    padding: 20px; /* 내부 여백 */
+    margin: 20px; /* 바깥 여백 */
+    border-radius: 59.8256px; /* 버튼 모서리 반경 */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding-top: 20px;
-    color: #FFFFFF;
+    color: #FFFFFF; /* 텍스트 색상 */
     text-align: center;
     font-family: 'Monda', sans-serif;
-    text-decoration: none; /* Ensure text is not underlined */
+    text-decoration: none; /* 텍스트 밑줄 제거 */
 }
 
 /* Text styles */
@@ -633,23 +628,20 @@ label {
 
 /* Icon styles */
 .button-icon {
-    position: absolute;
-    width: 213px;
-    height: 213px;
-    bottom: 20px;
-    right: 20px;
-    background: url('accounts/image/user.png');
+    width: 200px; /* 아이콘 너비 */
+    height: 200px; /* 아이콘 높이 */
+    background-size: cover;
+    background-position: center;
+    margin-top: auto; /* 아이콘을 버튼의 하단에 위치시킵니다 */
 }
-
-/* Specific button styles */
 
 /* Recommendation button */
 .recommendation-button {
     background: #E95454;
 }
 
-.recommendation-button .button-icon1 {
-    background: url('accounts/image/hoodie.png'); /* Adjust the image path as needed */
+.recommendation-button .button-icon {
+    background-image: url('{% static "accounts/image/hoodie.png" %}');
 }
 
 /* Calendar button */
@@ -657,16 +649,15 @@ label {
     background: #1A66D7;
 }
 
-.calendar-button .button-icon2 {
-    background: url('accounts/image/calendar.png'); /* Adjust the image path as needed */
+.calendar-button .button-icon {
+    background-image: url('{% static "accounts/image/calendar.png" %}');
 }
 
 /* Pictures button */
-.pictures-button {
+.add-button {
     background: #203CA0;
 }
 
-.pictures-button .button-icon3 {
-    background: url('accounts/image/hanger.png'); /* Adjust the image path as needed */
+.add-button .button-icon {
+    background-image: url('{% static "accounts/image/hanger.png" %}');
 }
-/*============================= button of usersession =======================*/

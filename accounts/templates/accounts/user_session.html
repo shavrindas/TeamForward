@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'accounts/css/styles.css' %}">
     <title>User Session Main Page</title>
+    <style>
+        body {
+            background-image: url("{% static 'image/p4.png' %}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -37,16 +46,21 @@
     <div class="buttons-container">
         <a href="{% url 'recommend_clothes' %}" class="button recommendation-button">
             <div class="button-text-large">Styling</div>
-            <div class="button-icon icon1"></div>
+            <div class="button-icon">
+                <img src="{% static 'accounts/image/hoodie.png' %}" alt="Hoodie Icon" style="width: 100%; height: 100%;">
+            </div>
         </a>
         <a href="{% url 'cal2:calendar_v2' %}" class="button calendar-button">
             <div class="button-text-large">Calendar</div>
-            <div class="button-icon icon2"></div>
+            <div class="button-icon">
+                <img src="{% static 'accounts/image/calendar.png' %}" alt="Calendar Icon" style="width: 100%; height: 100%;">
+            </div>
         </a>
-        <a href="{% url 'add_and_show' %}" class="button pictures-button">
-            
+        <a href="{% url 'add_and_show' %}" class="button add-button">
             <div class="button-text-large">Clothes</div>
-            <div class="button-icon icon3"></div>
+            <div class="button-icon">
+                <img src="{% static 'accounts/image/hanger.png' %}" alt="Hanger Icon" style="width: 100%; height: 100%;">
+            </div>
         </a>
     </div>
 </body>
