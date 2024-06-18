@@ -126,23 +126,24 @@ body {
 /*================================ Log out ===================================*/
 /* Logout button styling */
 .logout-button {
-    background-color: #D9534F;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
+  background-color: #D9534F;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 /* Logout form styling to align with other buttons */
 .logout-form {
-    position: absolute;
-    left: 1070px;
-    top: 90px;
-    margin: 0;
-    padding: 0;
+  position: absolute;
+  left: 1070px;
+  top: 90px;
+  margin: 0;
+  padding: 0;
 }
+
 /*================================ Log out ===================================*/
 /*++++++++++++++++++++++++++++++++++++== 기본 ++++++++++++++++++++++++++++++++++++++++++++++*/
 

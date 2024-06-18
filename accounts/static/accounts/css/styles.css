@@ -601,9 +601,9 @@ label {
     height: 600px;
     padding-left: 20px;
     padding-right: 20px;
-    margin-left:20px;
-    margin-right:20px;
-    margin-bottom:40px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 40px;
     border-radius: 59.8256px;
     display: flex;
     flex-direction: column;
@@ -638,7 +638,6 @@ label {
     height: 213px;
     bottom: 20px;
     right: 20px;
-    background: url('accounts/image/user.png');
 }
 
 /* Specific button styles */
@@ -648,8 +647,9 @@ label {
     background: #E95454;
 }
 
-.recommendation-button .button-icon1 {
-    background: url('accounts/image/hoodie.png'); /* Adjust the image path as needed */
+.recommendation-button .button-icon {
+    background: url('/static/accounts/image/hoodie.png') no-repeat center center;
+    background-size: contain;
 }
 
 /* Calendar button */
@@ -657,16 +657,18 @@ label {
     background: #1A66D7;
 }
 
-.calendar-button .button-icon2 {
-    background: url('accounts/image/calendar.png'); /* Adjust the image path as needed */
+.calendar-button .button-icon {
+    background: url('/static/accounts/image/calendar.png') no-repeat center center;
+    background-size: contain;
 }
 
 /* Pictures button */
-.pictures-button {
+.add-button {
     background: #203CA0;
 }
 
-.pictures-button .button-icon3 {
-    background: url('accounts/image/hanger.png'); /* Adjust the image path as needed */
+.add-button .button-icon {
+    background: url('/static/accounts/image/hanger.png') no-repeat center center;
+    background-size: contain;
 }
 /*============================= button of usersession =======================*/
