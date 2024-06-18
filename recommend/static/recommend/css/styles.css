@@ -146,23 +146,31 @@ body {
 /*================================ Log out ===================================*/
 /*++++++++++++++++++++++++++++++++++++== 기본 ++++++++++++++++++++++++++++++++++++++++++++++*/
 
-/* Weather section */
-#recommend_algorithm {
-    font-family: 'Monda', sans-serif;
-    background-color: #F3F4F6;
-    border: 2px solid #D9D9D9;
-    border-radius: 10px;
+/*================== recommendation.html ========================*/
+
+/* 컨테이너 스타일 */
+.container {
+    background-color: #FFFFFF;
     padding: 20px;
-    margin: 40px 0; /* Increase top and bottom margins for spacing */
-    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Concept buttons */
+/* 헤더 스타일 */
+h1 {
+    font-size: 2.5rem;
+    color: #333333;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #555555;
+}
+
+/* 버튼 스타일 */
 .concept-button {
-    font-family: 'Monda', sans-serif;
     font-size: 18px;
     color: white;
-    background-color: #1A66D7;
     border: none;
     border-radius: 5px;
     padding: 10px 20px;
@@ -172,48 +180,10 @@ body {
 }
 
 .concept-button:hover {
-    background-color: #1451A1;
+    filter: brightness(0.9);
 }
 
-/* Recommend button */
-.recommend-button {
-    font-family: 'Monda', sans-serif;
-    font-size: 18px;
-    color: white;
-    background-color: #294CC8;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    margin-top: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.recommend-button:hover {
-    background-color: #1A66D7;
-}
-
-/* Image section styling */
-#selected_clothes {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-top: 40px; /* Increase top margin for spacing */
-}
-
-.image-box {
-    background-color: #FFFFFF;
-    border: 2px solid #D9D9D9;
-    border-radius: 10px;
-    padding: 10px;
-    margin: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Save recommendation button */
 .save-recommendation-button {
-    font-family: 'Monda', sans-serif;
     font-size: 18px;
     color: white;
     background-color: #4CAF50;
@@ -228,3 +198,22 @@ body {
 .save-recommendation-button:hover {
     background-color: #388E3C;
 }
+
+/* 이미지 섹션 스타일 */
+#selected_clothes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.image-box {
+    background-color: #FFFFFF;
+    border: 2px solid #D9D9D9;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/*================== recommendation.html ========================*/

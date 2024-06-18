@@ -9,6 +9,15 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="{% static 'recommend/css/styles.css' %}">
   <title>{% block title %}recommend{% endblock %}</title>
+  <style>
+    body {
+        background-image: url("{% static 'image/p1.png' %}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed; /* 추가: 배경 이미지를 고정 */
+    }
+</style>
 </head>
 <body>
   <!-- Navigation Bar -->
