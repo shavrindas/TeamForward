@@ -5,34 +5,42 @@ Recommendation
 {% endblock %}
 
 {% block content %}
-<h1 class="my-4">Choose Your Style {{ user_email }}</h1>
-<form method="get" action="/recommend_clothes/" class="mb-4">
-    <input type="hidden" name="latitude" value="37.7749">
-    <input type="hidden" name="longitude" value="-122.4194">
-    <div class="btn-group" role="group">
-        <button type="submit" name="situation" value="dandy" class="btn btn-primary">Dandy</button>
-        <button type="submit" name="situation" value="formal" class="btn btn-secondary">Formal</button>
-        <button type="submit" name="situation" value="casual" class="btn btn-success">Casual</button>
-        <button type="submit" name="situation" value="street" class="btn btn-info">Street</button>
-        <button type="submit" name="situation" value="sporty" class="btn btn-warning">Sporty</button>
+<div class="container mt-5">
+    <h1 class="my-4 text-center">Choose Your Style, {{ user_email }}</h1>
+    <form method="get" action="/recommend_clothes/" class="mb-4 text-center">
+        <input type="hidden" name="latitude" value="37.7749">
+        <input type="hidden" name="longitude" value="-122.4194">
+        <div class="btn-group" role="group">
+            <button type="submit" name="situation" value="dandy" class="btn btn-primary concept-button">Dandy</button>
+            <button type="submit" name="situation" value="formal" class="btn btn-secondary concept-button">Formal</button>
+            <button type="submit" name="situation" value="casual" class="btn btn-success concept-button">Casual</button>
+            <button type="submit" name="situation" value="street" class="btn btn-info concept-button">Street</button>
+            <button type="submit" name="situation" value="sporty" class="btn btn-warning concept-button">Sporty</button>
+        </div>
+    </form>
+
+    <h2 class="my-4 text-center">Recommended Clothing</h2>
+    <div class="d-flex justify-content-around" id="selected_clothes">
+        <div class="image-box">
+            <img src="{{ selected_bottom_image_path }}" alt="Bottom" class="img-thumbnail">
+        </div>
+        <div class="image-box">
+            <img src="{{ selected_top_image_path }}" alt="Top" class="img-thumbnail">
+        </div>
+        <div class="image-box">
+            <img src="{{ selected_outer_image_path }}" alt="Outer" class="img-thumbnail">
+        </div>
     </div>
-</form>
 
-<h2 class="my-4">Recommended Clothing</h2>
-<div class="d-flex justify-content-around">
-    <img src="{{ selected_bottom_image_path }}" alt="Bottom" class="img-thumbnail">
-    <img src="{{ selected_top_image_path }}" alt="Top" class="img-thumbnail">
-    <img src="{{ selected_outer_image_path }}" alt="Outer" class="img-thumbnail">
+    <form action="{% url 'save_recommendation' %}" method="post" id="recommendationForm" class="mt-4 text-center">
+        {% csrf_token %}
+        <input type="hidden" name="selected_bottom_image_path" value="{{ selected_bottom_image_path }}">
+        <input type="hidden" name="selected_top_image_path" value="{{ selected_top_image_path }}">
+        <input type="hidden" name="selected_outer_image_path" value="{{ selected_outer_image_path }}">
+        <input type="hidden" name="style" value="{{ selected_style }}">
+        <button type="submit" class="btn btn-primary save-recommendation-button">Save Recommendation</button>
+    </form>
 </div>
-
-<form action="{% url 'save_recommendation' %}" method="post" id="recommendationForm" class="mt-4">
-    {% csrf_token %}
-    <input type="hidden" name="selected_bottom_image_path" value="{{ selected_bottom_image_path }}">
-    <input type="hidden" name="selected_top_image_path" value="{{ selected_top_image_path }}">
-    <input type="hidden" name="selected_outer_image_path" value="{{ selected_outer_image_path }}">
-    <input type="hidden" name="style" value="{{ selected_style }}">
-    <button type="submit" class="btn btn-primary">Save Recommendation</button>
-</form>
 {% endblock %}
 
 {% block script %}
