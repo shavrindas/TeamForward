@@ -44,7 +44,6 @@ def login(request):
             messages.error(request, '유효하지 않은 이메일 또는 비밀번호입니다.')
             return render(request, 'accounts/login.html')
     else:
-        # 이전 페이지로부터 전달된 next 매개변수 확인
         next_page = request.GET.get('next')
         return render(request, 'accounts/login.html', {'next': next_page})
 
@@ -53,7 +52,7 @@ def user_session(request):
     user_id = request.COOKIES.get('user_id')
     if user_id:
         user = get_object_or_404(UserData, id=user_id)
-        return render(request, 'accounts/user_session.html', {'username': user.id})
+        return render(request, 'accounts/user_session.html', {'username': user.email})
     else:
         return redirect('login')
     
@@ -63,7 +62,7 @@ def find_account(request):
         email = request.POST.get('email')
         if UserData.objects.filter(email=email).exists():
             user = UserData.objects.get(email=email)
-            return render(request, 'accounts/edit_account.html', {'user_id': user.email})
+            return render(request, 'accounts/edit_account.html', {'user_id': user.id})
         else:
             messages.error(request, '해당 이메일로 가입된 계정을 찾을 수 없습니다.')
             return render(request, 'accounts/find_account.html')
