@@ -1,4 +1,3 @@
-<!-- templates/calendar_v2/event_detail.html -->
 {% extends 'calendar_v2/base.html' %}
 
 {% block title %}
@@ -10,45 +9,45 @@
 {% endblock %}
 
 {% block content %}
-    <div class="form-group">
-        <label>제목:</label>
-        <p class="form-control-static">{{ event.title }}</p>
+<div style="text-align: center;">
+    <div style="background-color: white; width: 1200px; margin: 0 auto; padding: 20px;">
+        <div class="form-group">
+            <label>제목:</label>
+            <p class="form-control-static">{{ event.title }}</p>
+        </div>
+        <div class="form-group">
+            <label>설명:</label>
+            <p class="form-control-static">{{ event.description }}</p>
+        </div>
+        <div class="form-group">
+            <label>일정 날짜:</label>
+            <p class="form-control-static">{{ event.date }}</p>
+        </div>
     </div>
-    <div class="form-group">
-        <label>설명:</label>
-        <p class="form-control-static">{{ event.description }}</p>
-    </div>
-    <div class="form-group">
-        <label>일정 날짜:</label>
-        <p class="form-control-static">{{ event.date }}</p>
-    </div>
-    
-    <a href="{% url 'cal2:event_edit2' event.id %}" class="btn btn-primary">수정</a>
-    <a href="{% url 'cal2:event_delete2' event.id %}" class="btn btn-danger">삭제</a>
-    <a href="{% url 'cal2:calendar_v2' %}" class="btn btn-info">돌아가기</a>
-
-
-    <div class="form-group">
+    <a href="{% url 'cal2:event_edit2' event.id %}" class="btn btn-primary btn-opaque">수정</a>
+    <a href="{% url 'cal2:event_delete2' event.id %}" class="btn btn-danger btn-opaque">삭제</a>
+    <a href="{% url 'cal2:calendar_v2' %}" class="btn btn-info btn-opaque">돌아가기</a>
+    <div class="form-group text-center">
         <label>추천 의류:</label>
         {% if recommended_clothes %}
-            <div class="row">
+            <div class="row justify-content-center">
                 {% for item in recommended_clothes %}
-                    <div class="col-md-1 mb-3">
+                    <div class="col-md-3 mb-3">
                         <div class="card">
                             <div class="card-body">
-
+                                <h5 class="card-title">Outer</h5>
                                 <img src="{{ item.outer_url }}" class="img-fluid" alt="Outer">
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-body">
-      
+                                <h5 class="card-title">Top</h5>
                                 <img src="{{ item.top_url }}" class="img-fluid" alt="Top">
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-body">
-  
+                                <h5 class="card-title">Bottom</h5>
                                 <img src="{{ item.bottom_url }}" class="img-fluid" alt="Bottom">
                             </div>
                         </div>
@@ -56,8 +55,8 @@
                 {% endfor %}
             </div>
         {% else %}
-            <div class="row">
-                <div class="col-md-1.5 mb-3">
+            <div class="row justify-content-center">
+                <div class="col-md-3 mb-3">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Outer</h5>
@@ -80,5 +79,5 @@
             </div>
         {% endif %}
     </div>
-
+    
 {% endblock %}

@@ -8,8 +8,52 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="{% static 'calendar_v2/css/styles.css' %}">
   <title>Calendar</title>
-</head>
+  <style>
+    body {
+        background-image: url("{% static 'image/p2.png' %}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    .calendar {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .clearfix {
+        margin-bottom: 20px;
+    }
+    .btn.right {
+        margin-left: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+    }
+    .btn.right:hover {
+        background-color: #0056b3;
+    }
+    .logo-container, .title, hr {
+        background: none; 
+    }
+    nav {
+        background: none; 
+    }
 
+    .btn-opaque {
+      background-color:  #0056b3;
+      color: white;
+        border: none;
+    }
+    .btn-opaque:hover {
+        background-color: rgba(0, 0, 0, 0.9); /* 마우스 오버 시 불투명도를 조금 더 높임 */
+    }
+  </style>
+
+
+  </style>
+</head>
 <body>
   <!-- Navigation Bar -->
   <header>

@@ -5,19 +5,21 @@
 {% endblock %}
 
 {% block content %}
-<div class="clearfix">
-    <a class="btn btn-info right" href="{% url 'cal2:event_new2' %}"> 새 이벤트 생성 </a>
-</div>
+<div style="background-color: white; width: 800px; margin: 0 auto; padding: 20px; text-align: center;">
+    <div class="clearfix">
+        <a class="btn btn-info right" href="{% url 'cal2:event_new2' %}">새 이벤트 생성</a>
+    </div>
 
-{% if not event_exists2 %}
-    <p>일정이 없습니다.</p>
-{% else %}
-    <ul>
-        {% for event in event_list %}
-            <li>{{ event.date }} - {{ event.title }}</li>
-        {% empty %}
-            <li>일정이 없습니다.</li>
-        {% endfor %}
-    </ul>
-{% endif %}
+    {% if not event_exists2 %}
+        <p>일정이 없습니다.</p>
+    {% else %}
+        <ul style="text-align: left; display: inline-block;">
+            {% for event in event_list %}
+                <li>{{ event.date }} - {{ event.title }}</li>
+            {% empty %}
+                <li>일정이 없습니다.</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
 {% endblock %}
