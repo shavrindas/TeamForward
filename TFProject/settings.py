@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 TEMPLATE_ACCOUNT = os.path.join(BASE_DIR, "accounts", "templates")
 TEMPLATE_ADD_CLOTHES = os.path.join(BASE_DIR, "add_clothes", "templates")
-TEMPLATE_CAL = os.path.join(BASE_DIR, "cal", "templates")
+TEMPLATE_CALENDER_V2 = os.path.join(BASE_DIR, "calendar_v2", "templates")
 TEMPLATE_RECOMMEND = os.path.join(BASE_DIR, "recommend", "templates")
 
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -30,7 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     'add_clothes',
-    'cal',
+    'calendar_v2',
     'recommend',
 ]
 
@@ -52,7 +52,7 @@ TEMPLATES = [
         'DIRS': [
             TEMPLATE_ACCOUNT,
             TEMPLATE_ADD_CLOTHES,
-            TEMPLATE_CAL,
+            TEMPLATE_CALENDER_V2,
             TEMPLATE_RECOMMEND,
         ],
         'APP_DIRS': True,
@@ -116,7 +116,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'accounts', 'static'),
     os.path.join(BASE_DIR, 'add_clothes', 'static'),
-    os.path.join(BASE_DIR, 'cal', 'static'),
+    os.path.join(BASE_DIR, 'calendar_v2', 'static'),
     os.path.join(BASE_DIR, 'recommend', 'static'),
 ]
 
